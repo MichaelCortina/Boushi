@@ -10,15 +10,16 @@ class MovableObject : MonoBehaviour, IMovable
 
     private Vector2 _moveDirection;
     private Rigidbody2D _rb;
+    private Vector3 _previousPosition;
 
     public void MoveObject(Vector2 direction) => _moveDirection = direction;
 
     private void FixedUpdate()
     {
-        if (_moveDirection.magnitude == 0)
-            return;
         _rb.MovePosition(_rb.position + _moveDirection * (moveSpeed * Time.fixedDeltaTime));
-        ObjectMoved?.Invoke(gameObject, transform.position);
+        if (transform.position != _previousPosition)
+            ObjectMoved?.Invoke(gameObject, transform.position);
+        _previousPosition = transform.position;
     }
 
     private void Awake()
