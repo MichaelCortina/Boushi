@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ec6ff0376cf40a4ab1052b7867d1977, type: 3}
-  m_Name: ExampleTileInfo
+  m_Name: Ground Tile
   m_EditorClassIdentifier: 
-  tiles: []
-  ground: 0
+  tiles:
+  - {fileID: 11400000, guid: 3907219ca47c2ea43ba1c8cbdec55b12, type: 2}
+  ground: 1
