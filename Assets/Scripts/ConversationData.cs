@@ -9,30 +9,24 @@ using UnityEngine.UI;
 public class ConversationData : ScriptableObject
 {
     [SerializeField] private TaggedImages images;
-    [SerializeField] private string jsonFileName;
+    [SerializeField] private string jsonFilePath;
     [SerializeField] private List<ConversationLine> conversationLines;
 
     public IEnumerable<ConversationLine> Conversation => conversationLines;
-        
-    [ContextMenu("PopulateFromJson")]
-    private void PopulateFromJson()
-    {
-        var jsonString = File.ReadAllText(jsonFileName);
-        var lines = JsonSerializer.Create()
-            .Deserialize<List<Intermediary>>(new JsonTextReader(new StringReader(jsonString)));
 
-        conversationLines = lines?.Select(ToLine).ToList();
-    }
+    [ContextMenu("PopulateFromJSON")]
+    private void PopulateFromJson() =>
+        conversationLines =
+            Utils.FromJSON<List<Intermediary>>(jsonFilePath)
+                ?.Select(ToLine).ToList();
 
-    private ConversationLine ToLine(Intermediary line)
-    {
-        return new ConversationLine
+    private ConversationLine ToLine(Intermediary line) => 
+        new()
         {
             Image = images.GetImageFromTag(line.ImageTag),
             Text = line.Text
         };
-    }
-    
+
     [System.Serializable]
     private class Intermediary
     {
