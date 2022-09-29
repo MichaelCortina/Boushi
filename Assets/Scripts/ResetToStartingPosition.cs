@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-class ResetToStartingPostion : MonoBehaviour, IReset
+class ResetToStartingPosition : MonoBehaviour, IResetable
 {
     private Vector3 _startingPosition;
     

@@ -1,4 +1,4 @@
-﻿public interface IReset
+﻿public interface IResetable
 {
     public void ResetObject();
 }
