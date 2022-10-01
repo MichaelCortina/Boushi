@@ -16,7 +16,8 @@ public class CreationHat : MonoBehaviour
     { 
         Vector2 mouseWorldPosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         var distance = Vector2.Distance(mouseWorldPosition, transform.position);
-        
+        // calculate distance between mouse and player, if this is further than
+        // the create radius exit the method
         if (distance > createRadius) return;
 
         toCreate.transform.position = mouseWorldPosition;
