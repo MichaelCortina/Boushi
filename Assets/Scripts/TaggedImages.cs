@@ -6,12 +6,10 @@ public class TaggedImages : ScriptableObject
 {
     [SerializeField] private List<TaggedImage> taggedImages;
 
-    public Image GetImageFromTag(string imageTag)
-    {
-        return taggedImages.Find(image => image.Tag == imageTag)?.Image;
-    }
-    
-    
+    public Image GetImageFromTag(string imageTag) => 
+        taggedImages.Find(image => image.Tag == imageTag)?.Image;
+
+
     [System.Serializable]
     private class TaggedImage
     {
