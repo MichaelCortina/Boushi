@@ -6,17 +6,10 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private Bounds _bounds;
-
-    private Vector3 _playerPosition;
-
+    
     private void Update()
     {
-        transform.position = new Vector3(_playerPosition.x, _playerPosition.y, transform.position.z);
-    }
-
-    private void Awake()
-    {
-        _playerPosition = player.transform.position;
+        var playerPosition = player.transform.position;
+        transform.position = new Vector3(playerPosition.x, playerPosition.y, transform.position.z);
     }
 }
