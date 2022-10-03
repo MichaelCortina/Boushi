@@ -2462,7 +2462,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2127178039}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2478,8 +2479,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c960509da6ca4a6189f820b4de98b2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraBounds: {fileID: 1355386776}
+  cameraCollider: {fileID: 2127178042}
+  mapCollider: {fileID: 1355386776}
   player: {fileID: 673140218}
+  cameraSpeed: 0.75
+  centerCamera: 13
 --- !u!1 &673140216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2897,18 +2901,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.8772743, y: 0.8616972}
-      - {x: -1.2600658, y: 3.2607062}
-      - {x: -2.6356122, y: 3.2508562}
-      - {x: -2.9523375, y: 0.86492825}
-      - {x: -4.9526076, y: 0.8645685}
-      - {x: -4.883708, y: -6.1751795}
-      - {x: 2.1176503, y: -6.1457667}
-      - {x: 2.090168, y: -4.114366}
-      - {x: 11.03931, y: -4.129142}
-      - {x: 11.009658, y: -2.1712904}
-      - {x: 2.0702157, y: -2.1432045}
-      - {x: 2.09994, y: 0.9019894}
+    - - {x: 2.0547585, y: 0.87641525}
+      - {x: -0.8996165, y: 0.87641597}
+      - {x: -0.9809537, y: 3.8673086}
+      - {x: -2.9656606, y: 3.8521094}
+      - {x: -2.8936102, y: 2.8919642}
+      - {x: -2.8426728, y: 0.75258875}
+      - {x: -4.9302645, y: 0.8403311}
+      - {x: -4.921611, y: -6.1805925}
+      - {x: 2.0304935, y: -6.188238}
+      - {x: 2.0168881, y: -4.06427}
+      - {x: 8.048716, y: -4.0697384}
+      - {x: 8.070001, y: -2.133388}
+      - {x: 4.210432, y: -2.1423624}
+      - {x: 2.077598, y: -2.1904798}
 --- !u!4 &1355386777
 Transform:
   m_ObjectHideFlags: 0
@@ -2916,8 +2922,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355386775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9203544, y: 2.115585, z: 0.023189913}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.9203544, y: 2.115585, z: 0.023189545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3055,3 +3061,78 @@ MonoBehaviour:
   m_PositionObjectValues: []
   m_PositionColorKeys: []
   m_PositionColorValues: []
+--- !u!1 &2127178038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127178039}
+  - component: {fileID: 2127178042}
+  - component: {fileID: 2127178041}
+  m_Layer: 0
+  m_Name: Camera Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2127178039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127178038}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2127178041
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127178038}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 7, y: 3.5}
+  m_Direction: 1
+--- !u!61 &2127178042
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127178038}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7, y: 3.5}
+  m_EdgeRadius: 0
