@@ -4204,7 +4204,11 @@ MonoBehaviour:
   player: {fileID: 1853122723}
   cameraSpeed: 1
   centerCamera: 113
-  followDistance: 0.1
+--- !u!1 &849896310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2135891473114367647, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
+  m_PrefabInstance: {fileID: 1200430916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &942002772
 GameObject:
   m_ObjectHideFlags: 0
@@ -4308,6 +4312,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751727, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634485632271346469, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: toCreate
+      value: 
+      objectReference: {fileID: 849896310}
+    - target: {fileID: 6634485632271346469, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: createRadius
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
 --- !u!1001 &1200430916
@@ -4317,6 +4333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2135891473114367640, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2135891473114367641, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
       propertyPath: m_RootOrder
       value: 1

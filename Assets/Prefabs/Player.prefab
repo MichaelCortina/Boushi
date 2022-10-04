@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3313659662941751724}
   - component: {fileID: 3313659662941751727}
   - component: {fileID: 3313659662941751891}
+  - component: {fileID: 6634485632271346469}
   - component: {fileID: 3313659662941751726}
   - component: {fileID: 3313659662941751721}
   - component: {fileID: 3313659662941751725}
@@ -131,6 +132,21 @@ MonoBehaviour:
   resetKey: 114
   resetTime: 2
   player: {fileID: 3313659662941751722}
+--- !u!114 &6634485632271346469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313659662941751722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b4a6b11e364666be4b557bbabb5137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 99
+  toCreate: {fileID: 2135891473114367647, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
+  createRadius: 1
 --- !u!114 &3313659662941751726
 MonoBehaviour:
   m_ObjectHideFlags: 0
