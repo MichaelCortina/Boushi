@@ -5,28 +5,22 @@ using UnityEngine.Events;
 public class GameEvents : MonoBehaviour
 {
     [SerializeField] private float timeOpen;
-    [SerializeField] private int id;
     public static GameEvents Current;
     
     private void Awake()
     {
         Current = this;
     }
-
-    public event Action OnPressurePlateDown;
-    public void PressurePlateDown(int otherId)
+    public event Action<int> OnPressurePlateDown;
+    public void PressurePlateDown(int id)
     {
-        if (id == otherId){
-            OnPressurePlateDown?.Invoke();
-        }
+        OnPressurePlateDown?.Invoke(id);
     }
     
-    public event Action OnPressurePlateUp;
+    public event Action<int> OnPressurePlateUp;
 
-    public void PressurePlateUp(int otherId)
+    public void PressurePlateUp(int id)
     {
-        if (id == otherId){
-            OnPressurePlateUp?.Invoke();
-        }
+        OnPressurePlateUp?.Invoke(id);
     }
 }

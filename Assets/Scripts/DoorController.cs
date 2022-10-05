@@ -23,7 +23,7 @@ public class DoorController : MonoBehaviour
     {
         if (id == otherId)
         {
-            Debug.Log("door");
+            Debug.Log("door close");
         }
         
     }

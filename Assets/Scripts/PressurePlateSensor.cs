@@ -7,11 +7,11 @@ public class PressurePlateSensor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        GameEvents.Current.OnPressurePlateDown(id);
+        GameEvents.Current.PressurePlateDown(id);
     }
  
     private void OnTriggerExit2D(Collider2D other)
     {
-        GameEvents.Current.OnPressurePlateUp(id);
+        GameEvents.Current.PressurePlateUp(id);
     }
 }
