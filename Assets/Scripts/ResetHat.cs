@@ -7,7 +7,7 @@ public class ResetHat : MonoBehaviour
     [SerializeField] private float resetTime; 
     [SerializeField] private GameObject player;
 
-    private Vector2 _resetPosition;
+    private Vector3 _resetPosition;
     private bool _hasResetPoint;
     private InputHandler _inputHandler;
     

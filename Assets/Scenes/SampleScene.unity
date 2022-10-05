@@ -4204,9 +4204,9 @@ MonoBehaviour:
   player: {fileID: 1853122723}
   cameraSpeed: 1
   centerCamera: 113
---- !u!1 &849896310 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2135891473114367647, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
+--- !u!4 &849896317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2135891473114367641, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
   m_PrefabInstance: {fileID: 1200430916}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &942002772
@@ -4319,7 +4319,7 @@ PrefabInstance:
     - target: {fileID: 6634485632271346469, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: toCreate
       value: 
-      objectReference: {fileID: 849896310}
+      objectReference: {fileID: 849896317}
     - target: {fileID: 6634485632271346469, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: createRadius
       value: 4
@@ -4622,6 +4622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13274053d63f48639b39e22e44a35fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionZ: 0
   distanceInX: 0
   distanceInY: -2
 --- !u!212 &1807373103

@@ -10,9 +10,21 @@ public class EventPressurePlate : MonoBehaviour
     [SerializeField] private UnityEvent onExit;
     [SerializeField] private UnityEvent onStay;
 
-    private void OnTriggerEnter2D(Collider2D other) => onPressed?.Invoke();
+    private readonly List<Collider2D> _collidersOnThis = new();
 
-    private void OnTriggerExit2D(Collider2D other) => onExit?.Invoke();
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        _collidersOnThis.Add(other);
+        if (_collidersOnThis.Count == 1)
+            onPressed?.Invoke();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        _collidersOnThis.Remove(other);
+        if (_collidersOnThis.Count == 0)
+            onExit?.Invoke();
+    }
 
     private void OnTriggerStay(Collider other) => onStay?.Invoke();
 }
