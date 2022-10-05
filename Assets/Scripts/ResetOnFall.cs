@@ -14,7 +14,7 @@ public class ResetOnFall : MonoBehaviour
     {
         var currentTileInfo = _mapManager.InfoAtPosition(worldPosition);
         
-        if (!currentTileInfo.IsGround) 
+        if (!currentTileInfo.IsGround)
             _resetable.ResetObject();
     }
 

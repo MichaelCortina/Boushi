@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -8,6 +9,16 @@ public class DoorController : MonoBehaviour
     {
         GameEvents.Current.OnPressurePlateDown += OnDoorOpen;
         GameEvents.Current.OnPressurePlateUp += OnDoorClose;
+    }
+
+    public void OpenDoor()
+    {
+        
+    }
+
+    public void CloseDoor()
+    {
+        
     }
 
     private void OnDoorOpen(int otherId)

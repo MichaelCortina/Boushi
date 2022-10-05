@@ -38,7 +38,7 @@ public class SimpleCameraFollow : MonoBehaviour
         if (_centeringCamera)
             _centeringCamera = Math.Abs(cameraPosition.x - playerPosition.x) > 0.1 || Math.Abs(cameraPosition.y - playerPosition.y) > 0.1;
     }
-    
+
     private void Awake() =>
         _inputHandler = new InputHandler()
             .SetClickEvent(centerCamera, CenterCamera);
