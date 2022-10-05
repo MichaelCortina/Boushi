@@ -24,7 +24,7 @@ public class EventPressurePlate : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         _collidersOnThis.Remove(other);
-        if (_collidersOnThis.Count < timesCanBeActivated)
+        if (_collidersOnThis.Count < timesCanBeActivated) //Needs to be < and not <= because <= allows to unlimited deactivation
             onExit?.Invoke();
     }
 
