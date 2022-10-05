@@ -4622,7 +4622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13274053d63f48639b39e22e44a35fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFade: 0
   distanceInX: 0
   distanceInY: -2
 --- !u!212 &1807373103
