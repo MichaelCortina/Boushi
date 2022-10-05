@@ -1,10 +1,9 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CreationHat : MonoBehaviour
 {
     [SerializeField] private KeyCode key;
-    [SerializeField] private GameObject toCreate;
+    [SerializeField] private Transform toCreate;
     [SerializeField] private float createRadius;
 
     private InputHandler _inputHandler;
@@ -23,8 +22,8 @@ public class CreationHat : MonoBehaviour
         // the create radius exit the method
         if (distance > createRadius) return;
 
-        toCreate.transform.position = mouseWorldPosition;
-        toCreate.SetActive(true);
+        toCreate.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, toCreate.position.z);
+        toCreate.gameObject.SetActive(true);
     }
     
     private void ShowCreationRadius()
