@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] private bool isFade;
     [SerializeField] private float distanceInX;
     [SerializeField] private float distanceInY;
 
