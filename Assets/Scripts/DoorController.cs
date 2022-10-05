@@ -1,30 +1,23 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] private int id;
-    private void Start()
+    [SerializeField] private bool isFade;
+    [SerializeField] private float distanceInX;
+    [SerializeField] private float distanceInY;
+
+    public void OpenDoor()
     {
-        GameEvents.Current.OnPressurePlateDown += OnDoorOpen;
-        GameEvents.Current.OnPressurePlateUp += OnDoorClose;
+        var doorPosition = transform.position;
+        transform.position = new Vector3(doorPosition.x + distanceInX, doorPosition.y + distanceInY);
     }
 
-    private void OnDoorOpen(int otherId)
+    public void CloseDoor()
     {
-        if (id == otherId)
-        {
-            Debug.Log("door");
-        }
-        
-    }
-
-    private void OnDoorClose(int otherId)
-    {
-        if (id == otherId)
-        {
-            Debug.Log("door close");
-        }
-        
+        var doorPosition = transform.position;
+        transform.position = new Vector3(doorPosition.x - distanceInX, doorPosition.y - distanceInY);
     }
 }
