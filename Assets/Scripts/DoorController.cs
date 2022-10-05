@@ -7,8 +7,8 @@ public class DoorController : MonoBehaviour
     [SerializeField] private int id;
     private void Start()
     {
-        GameEvents.Current.OnPressurePlateDown += OnDoorOpen;
-        GameEvents.Current.OnPressurePlateUp += OnDoorClose;
+        //GameEvents.Current.OnPressurePlateDown += OnDoorOpen;
+        //GameEvents.Current.OnPressurePlateUp += OnDoorClose;
     }
 
     public void OpenDoor()
