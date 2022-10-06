@@ -22,7 +22,7 @@ public class CreationHat : MonoBehaviour
         // the create radius exit the method
         if (distance > createRadius) return;
 
-        toCreate.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, toCreate.position.z);
+        toCreate.position = mouseWorldPosition.Extend(toCreate.position.z);
         toCreate.gameObject.SetActive(true);
     }
     
