@@ -33,10 +33,11 @@ public class SimpleCameraFollow : MonoBehaviour
                     cameraCollider.ClosestPoint(playerPosition)));
 
         cameraPosition = mapCollider.bounds.ClosestPoint(cameraPosition);
-        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, transform.position.z);
+        transform.position = cameraPosition.Set(z: transform.position.z);
         
         if (_centeringCamera)
-            _centeringCamera = Math.Abs(cameraPosition.x - playerPosition.x) > 0.1 || Math.Abs(cameraPosition.y - playerPosition.y) > 0.1;
+            _centeringCamera = Math.Abs(cameraPosition.x - playerPosition.x) > 0.1 
+                               || Math.Abs(cameraPosition.y - playerPosition.y) > 0.1;
     }
 
     private void Awake() =>
