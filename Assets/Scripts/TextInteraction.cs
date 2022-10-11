@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialougeInteration : MonoBehaviour
+public class TextInteraction : MonoBehaviour
 {
-    public static Action<IEnumerable<ConversationLine>> OnDialogueInteraction;
+    public static Action<IEnumerable<ConversationLine>> OnTextInteraction;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))

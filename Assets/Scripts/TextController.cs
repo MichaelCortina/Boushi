@@ -11,12 +11,12 @@ public class TextController : MonoBehaviour
 
     private void OnEnable()
     {
-        DialougeInteration.OnDialogueInteraction += UpdateUI;
+        TextInteraction.OnTextInteraction += UpdateUI;
     }
     
     private void OnDisable()
     {
-        DialougeInteration.OnDialogueInteraction -= UpdateUI;
+        TextInteraction.OnTextInteraction -= UpdateUI;
     }
     
     private void UpdateUI(IEnumerable<ConversationLine> conversation)
