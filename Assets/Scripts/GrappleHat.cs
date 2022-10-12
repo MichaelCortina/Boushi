@@ -1,83 +1,95 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GrappleHat : MonoBehaviour
 {
-    private LineRenderer line;
-
     [SerializeField] private LayerMask grapplableMask;
-
     [SerializeField] private float maxDistance = 10f;
-
     [SerializeField] private float grappleSpeed = 10f;
-
     [SerializeField] private float grappleShootSpeed = 20f;
-
-    private bool isGrappling = false;
-
-    [HideInInspector] private bool retracting = false;
-
-    private Vector2 target;
     
-    private void Start() {
-        line = GetComponent<LineRenderer>();
-    }
-    
-    private void Update() {
-        if (Input.GetMouseButton(0) && !isGrappling) {
+    private LineRenderer _line;
+
+    private bool _isGrappling;
+    private bool _retracting;
+    private Vector2 _target;
+    private Camera _mainCamera;
+
+    private void Update()
+    {
+        if (Input.GetMouseButton(0) && !_isGrappling)
             StartGrapple();
-        }
-
-        if (retracting)
-        {
-            Vector2 grapplePos = Vector2.Lerp(transform.position, target, grappleSpeed * Time.deltaTime);
-            transform.position = grapplePos;
-            line.SetPosition(0, transform.position);
-
-            if (Vector2.Distance(transform.position, target) < 0.5f)
-            {
-                retracting = false;
-                isGrappling = false;
-                line.enabled = false;
-            }
-        }
     }
 
+    private void FixedUpdate()
+    {
+        if (_retracting)
+            Retract();
+    }
+
+    private void Retract()
+    {
+        Vector3 grapplePos = Vector2.Lerp(transform.position, _target, grappleSpeed * Time.deltaTime);
+        transform.position = grapplePos;
+        
+        _line.SetPosition(0, grapplePos);
+
+        if (Vector2.Distance(grapplePos, _target) < 0.5f)
+            StopRetracting();
+    }
+
+    private void StopRetracting()
+    {
+        _retracting = false;
+        _isGrappling = false;
+        _line.enabled = false;
+    }
+    
     private void StartGrapple()
     {
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-       
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxDistance, grapplableMask);
+        var position = transform.position;
+        
+        Vector2 direction = _mainCamera.ScreenToWorldPoint(Input.mousePosition) - position;
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, maxDistance, grapplableMask);
 
         if (hit.collider != null)
         {
-            isGrappling = true;
-            target = hit.point;
-            line.enabled = true;
-            line.positionCount = 2;
+            _isGrappling = true;
+            _target = hit.point;
+            _line.enabled = true;
+            _line.positionCount = 2;
 
-            StartCoroutine(Grapple());
+            StartCoroutine(GrappleCoroutine());
         }
     }
 
-    IEnumerator Grapple()
+    private IEnumerator GrappleCoroutine()
     {
         float t = 0;
         float time = 10;
-        line.SetPosition(0, transform.position);
-        line.SetPosition(1, transform.position);
-
-        Vector2 newPos;
+        var position = transform.position;
+        
+        _line.SetPosition(0, position);
+        _line.SetPosition(1, position);
 
         for (; t < time; t += grappleShootSpeed * Time.deltaTime)
         {
-            newPos = Vector2.Lerp(transform.position, target, t / time);
-            line.SetPosition(0, transform.position);
-            line.SetPosition(1, newPos);
+            position = transform.position;
+            var newPos = Vector2.Lerp(position, _target, t / time);
+            
+            _line.SetPosition(0, position);
+            _line.SetPosition(1, newPos);
             yield return null;
         }
-        line.SetPosition(1, target);
-        retracting = true;
+        _line.SetPosition(1, _target);
+        _retracting = true;
+    }
+
+    private void Awake()
+    {
+        _line = GetComponent<LineRenderer>();
+        _mainCamera = Camera.main;
     }
 }
