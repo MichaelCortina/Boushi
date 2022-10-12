@@ -4,8 +4,8 @@ using UnityEngine;
 public class ResetHat : MonoBehaviour
 {
     [SerializeField] private KeyCode resetKey;
-    [SerializeField] private float resetTime; 
-    [SerializeField] private GameObject player;
+    [SerializeField] private float resetTime;
+    [SerializeField] private SpriteRenderer afterImage;
 
     private Vector3 _resetPosition;
     private bool _hasResetPoint;
@@ -20,9 +20,16 @@ public class ResetHat : MonoBehaviour
     private void SoftReset()
     {
         if (_hasResetPoint)
-            player.transform.position = _resetPosition;
+        {
+            transform.position = _resetPosition;
+            afterImage.enabled = false;
+        }
         else
-            _resetPosition = player.transform.position;
+        {
+            _resetPosition = transform.position;
+            afterImage.transform.position = _resetPosition;
+            afterImage.enabled = true;
+        }
         _hasResetPoint = !_hasResetPoint;
     }
 
