@@ -4991,8 +4991,24 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3313659662941751723, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751723, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751723, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
+    - target: {fileID: 3313659662941751723, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: m_DrawMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751723, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3313659662941751727, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: moveSpeed
@@ -5435,7 +5451,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030539851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4291629ee427d8a4183905f0044e368f, type: 3}
+  m_Script: {fileID: 11500000, guid: ada7369bb0c3d5942967f8644611d90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grapplableMask:
