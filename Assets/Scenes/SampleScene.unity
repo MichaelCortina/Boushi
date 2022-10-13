@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5cb7381fbae5948acb31afd9637a749d, type: 3}
+  m_Sprite: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
   m_Color: {r: 0.53207546, g: 0.8127986, b: 0.8867924, a: 0.6156863}
   m_FlipX: 0
   m_FlipY: 0
@@ -5014,6 +5014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2272080385733670178, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: grapplableMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3313659662941751720, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5113,6 +5117,22 @@ PrefabInstance:
     - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: m_Offset.y
       value: -0.82498944
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3313659662941751891, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: afterImage
@@ -5530,24 +5550,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3313659662941751720, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
   m_PrefabInstance: {fileID: 1123893427}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1853122733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030539851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada7369bb0c3d5942967f8644611d90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grapplableMask:
-    serializedVersion: 2
-    m_Bits: 64
-  maxDistance: 10
-  grappleSpeed: 10
-  grappleShootSpeed: 20
 --- !u!120 &1853122734
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5647,6 +5649,24 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1853122744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030539851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4291629ee427d8a4183905f0044e368f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grapplableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  maxDistance: 10
+  grappleSpeed: 10
+  grappleShootSpeed: 20
 --- !u!1 &2068057888
 GameObject:
   m_ObjectHideFlags: 0

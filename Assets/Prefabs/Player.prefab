@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6634485632271346469}
   - component: {fileID: 3313659662941751726}
   - component: {fileID: 3313659662941751721}
+  - component: {fileID: 2272080385733670178}
   - component: {fileID: 3313659662941751725}
   - component: {fileID: 3313659662941751888}
   m_Layer: 0
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3313659662941751724
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetKey: 114
   resetTime: 2
-  player: {fileID: 3313659662941751722}
+  afterImage: {fileID: 0}
 --- !u!114 &6634485632271346469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +173,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec87cb23d6c4b448c3a825633f8234b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2272080385733670178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313659662941751722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4291629ee427d8a4183905f0044e368f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grapplableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  maxDistance: 10
+  grappleSpeed: 10
+  grappleShootSpeed: 20
 --- !u!50 &3313659662941751725
 Rigidbody2D:
   serializedVersion: 4
@@ -300,6 +319,6 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

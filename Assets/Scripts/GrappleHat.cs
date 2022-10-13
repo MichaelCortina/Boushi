@@ -31,9 +31,13 @@ public class GrappleHat : MonoBehaviour
 
     private void Retract()
     {
-        Vector3 grapplePos = Vector2.Lerp(transform.position, _target, grappleSpeed * Time.deltaTime);
-        transform.position = grapplePos;
+        var position = transform.position;
+        Vector3 grapplePos = 
+            Vector2.Lerp(position, _target, grappleSpeed * Time.deltaTime)
+            .Extend(position.z);
         
+        transform.position = grapplePos;
+
         _line.SetPosition(0, grapplePos);
 
         if (Vector2.Distance(grapplePos, _target) < 0.5f)
