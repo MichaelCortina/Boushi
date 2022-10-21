@@ -20,7 +20,7 @@ public class GrappleHat : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && !_isGrappling)
+        if (Input.GetMouseButton(0) && !_isGrappling && !Retracting)
             StartGrapple();
     }
 
