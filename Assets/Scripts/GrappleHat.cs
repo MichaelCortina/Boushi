@@ -10,10 +10,11 @@ public class GrappleHat : MonoBehaviour
     [SerializeField] private float grappleSpeed = 10f;
     [SerializeField] private float grappleShootSpeed = 20f;
     
+    public bool Retracting { get; private set; }
+    
     private LineRenderer _line;
 
     private bool _isGrappling;
-    private bool _retracting;
     private Vector2 _target;
     private Camera _mainCamera;
 
@@ -25,13 +26,13 @@ public class GrappleHat : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_retracting)
+        if (Retracting)
             Retract();
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (_retracting) 
+        if (Retracting) 
             StopRetracting();
     }
 
@@ -52,7 +53,7 @@ public class GrappleHat : MonoBehaviour
 
     private void StopRetracting()
     {
-        _retracting = false;
+        Retracting = false;
         _isGrappling = false;
         _line.enabled = false;
     }
@@ -88,7 +89,7 @@ public class GrappleHat : MonoBehaviour
             yield return null;
         }
         _line.SetPosition(1, _target);
-        _retracting = true;
+        Retracting = true;
     }
 
     private void Awake()

@@ -15,7 +15,9 @@ public class ResetOnFall : MonoBehaviour
     private void CheckFall(GameObject o, Vector3 worldPosition)
     {
         var currentTileInfo = _mapManager.InfoAtPosition(worldPosition);
-        if (!currentTileInfo.IsGround && _grappleHat is null)
+        if (!currentTileInfo.IsGround 
+            && (_grappleHat is null 
+                || !_grappleHat.Retracting))
             _resetable.ResetObject();
     }
 
