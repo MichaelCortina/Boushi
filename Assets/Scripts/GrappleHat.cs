@@ -33,7 +33,7 @@ public class GrappleHat : MonoBehaviour
     {
         var position = transform.position;
         Vector3 grapplePos = 
-            Vector2.Lerp(position, _target, grappleSpeed * Time.deltaTime)
+            Vector2.MoveTowards(position, _target, grappleSpeed * Time.deltaTime)
             .Extend(position.z);
         
         transform.position = grapplePos;
@@ -71,19 +71,13 @@ public class GrappleHat : MonoBehaviour
 
     private IEnumerator GrappleCoroutine()
     {
-        float t = 0;
-        float time = 10;
-        var position = transform.position;
-        
-        _line.SetPosition(0, position);
-        _line.SetPosition(1, position);
+        Vector2 newPos = transform.position;
 
-        for (; t < time; t += grappleShootSpeed * Time.deltaTime)
+        while(Vector2.Distance(newPos, _target) <= 0.0001f)
         {
-            position = transform.position;
-            var newPos = Vector2.Lerp(position, _target, t / time);
+            newPos = Vector2.MoveTowards(newPos, _target, grappleShootSpeed * Time.deltaTime);
             
-            _line.SetPosition(0, position);
+            _line.SetPosition(0, transform.position);
             _line.SetPosition(1, newPos);
             yield return null;
         }
