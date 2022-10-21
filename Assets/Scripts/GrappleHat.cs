@@ -20,7 +20,7 @@ public class GrappleHat : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && !_isGrappling && !Retracting)
+        if (Input.GetMouseButton(0) && !_isGrappling)
             StartGrapple();
     }
 
@@ -80,7 +80,7 @@ public class GrappleHat : MonoBehaviour
     {
         Vector2 newPos = transform.position;
 
-        while(Vector2.Distance(newPos, _target) <= 0.0001f)
+        while(Vector2.Distance(newPos, _target) >= 0.0001f)
         {
             newPos = Vector2.MoveTowards(newPos, _target, grappleShootSpeed * Time.deltaTime);
             
