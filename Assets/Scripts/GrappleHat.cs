@@ -29,6 +29,12 @@ public class GrappleHat : MonoBehaviour
             Retract();
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (_retracting) 
+            StopRetracting();
+    }
+
     private void Retract()
     {
         var position = transform.position;

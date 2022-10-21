@@ -3,7 +3,7 @@
 class ResetToStartingPosition : MonoBehaviour, IResetable
 {
     private Vector3 _startingPosition;
-    
+
     public void ResetObject()
     {
         transform.position = _startingPosition;
