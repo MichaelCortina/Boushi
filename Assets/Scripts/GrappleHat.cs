@@ -88,7 +88,7 @@ public class GrappleHat : MonoBehaviour
             _line.SetPosition(1, newPos);
             yield return null;
         }
-        _line.SetPosition(1, _target);
+        _line.SetPosition(1, _target); 
         Retracting = true;
     }
 

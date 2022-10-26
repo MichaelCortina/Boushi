@@ -6,7 +6,7 @@ class MovableObject : MonoBehaviour, IMovable
 {
     [SerializeField] private float moveSpeed;
 
-    public event IMovable.MoveHandler ObjectMoved;
+    public event EventHandler<ObjectMovedEventArgs> OnObjectMoved;
 
     private Vector2 _moveDirection;
     private Rigidbody2D _rb;
@@ -18,7 +18,7 @@ class MovableObject : MonoBehaviour, IMovable
     {
         _rb.MovePosition(_rb.position + _moveDirection * (moveSpeed * Time.fixedDeltaTime));
         if (transform.position != _previousPosition)
-            ObjectMoved?.Invoke(gameObject, transform.position);
+            OnObjectMoved?.Invoke(this, new ObjectMovedEventArgs(transform.position));
         _previousPosition = transform.position;
     }
 

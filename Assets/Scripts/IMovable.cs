@@ -1,9 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public interface IMovable
 {
-    public delegate void MoveHandler(GameObject sender, Vector3 worldPosition);
-    public event MoveHandler ObjectMoved;
+    event EventHandler<ObjectMovedEventArgs> OnObjectMoved;
 
     public void MoveObject(Vector2 direction);
+}
+
+public class ObjectMovedEventArgs : EventArgs
+{
+    public Vector3 WorldPosition { get; }
+    
+    public ObjectMovedEventArgs(Vector3 worldPosition)
+    {
+        WorldPosition = worldPosition;
+    }
 }
