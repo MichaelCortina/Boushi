@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ConversationExample
   m_EditorClassIdentifier: 
   images: {fileID: 11400000, guid: 6a7c8e7e5de26f34b8f0cac90f705763, type: 2}
-  jsonFileName: Assets/Dialouge/conversation_test.json
+  jsonFilePath: Assets/Dialouge/conversation_test.json
   conversationLines:
-  - <Image>k__BackingField: {fileID: 0}
+  - <Sprite>k__BackingField: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
     <Text>k__BackingField: does this work
+  - <Sprite>k__BackingField: {fileID: -2026930028, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
+    <Text>k__BackingField: this is the second line!

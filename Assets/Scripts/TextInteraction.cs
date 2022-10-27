@@ -4,20 +4,25 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TextInteraction : MonoBehaviour
+public class TextInteraction : MonoBehaviour, Interactable
 {
     [SerializeField] private KeyCode interactKey = KeyCode.X;
+    [SerializeField] private ConversationData conversation;
     [SerializeField] private UnityEvent onInteract;
-    private bool isInteracting = false;
-    private InputHandler _inputHandler;
-    private bool isPlayerInBounds;
     
-    public static Action<IEnumerable<ConversationLine>> OnTextInteraction;
+    public event EventHandler<InteractionEventArgs> OnInteraction;
+    public event EventHandler OnInteractionEnd;
+
+    private bool _isInteracting;
+    private bool _isPlayerInBounds;
+    
+    private InputHandler _inputHandler;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInBounds = true;
+            _isPlayerInBounds = true;
         }
     }
     
@@ -25,18 +30,29 @@ public class TextInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInBounds = false;
-            isInteracting = false;
+            _isPlayerInBounds = false;
+            if (_isInteracting)
+                EndInteraction();
         }
     }
     
-    private void StartInteract()
+    public void StartInteraction()
     {
-        if (isPlayerInBounds && !isInteracting)
+        if (_isPlayerInBounds && !_isInteracting)
         {
+            var args = new InteractionEventArgs(conversation.Conversation);
             onInteract?.Invoke();
-            isInteracting = true;
+            OnInteraction?.Invoke(this, args);
+            GlobalEventSystem.Instance.InvokeAnyInteraction(this, args);
+            _isInteracting = true;
         }
+    }
+
+    public void EndInteraction()
+    {
+        _isInteracting = false;
+        OnInteractionEnd?.Invoke(this, EventArgs.Empty);
+        GlobalEventSystem.Instance.InvokeAnyInteractionEnd(this);
     }
 
     private void Update() => _inputHandler.HandleInput();
@@ -44,6 +60,6 @@ public class TextInteraction : MonoBehaviour
     private void Awake()
     {
         _inputHandler = new InputHandler()
-            .SetClickEvent(interactKey, StartInteract);
+            .SetClickEvent(interactKey, StartInteraction);
     }
 }

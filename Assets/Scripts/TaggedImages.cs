@@ -6,14 +6,16 @@ public class TaggedImages : ScriptableObject
 {
     [SerializeField] private List<TaggedImage> taggedImages;
 
-    public Image GetImageFromTag(string imageTag) => 
-        taggedImages.Find(image => image.Tag == imageTag)?.Image;
+    public Sprite GetImageFromTag(string imageTag) => 
+        taggedImages.Find(image => image.Tag == imageTag)?.Sprite;
 
 
     [System.Serializable]
     private class TaggedImage
     {
+        [field: SerializeField]
         public string Tag { get; set; }
-        public Image Image { get; set; }
+        [field: SerializeField]
+        public Sprite Sprite { get; set; }
     }
 }

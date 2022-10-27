@@ -4,8 +4,7 @@ using UnityEngine;
 public interface IMovable
 {
     event EventHandler<ObjectMovedEventArgs> OnObjectMoved;
-
-    public void MoveObject(Vector2 direction);
+    void MoveObject(Vector2 direction);
 }
 
 public class ObjectMovedEventArgs : EventArgs

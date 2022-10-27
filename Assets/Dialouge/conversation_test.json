@@ -1,6 +1,10 @@
 ﻿[
-    {
-      "ImageTag": "test",
-      "Text": "does this work"
-    }
+  {
+    "ImageTag": "test",
+    "Text": "does this work"
+  },
+  {
+    "ImageTag": "test2",
+    "Text": "this is the second line!"
+  }
 ]

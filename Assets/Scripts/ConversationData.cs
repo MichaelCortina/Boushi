@@ -21,7 +21,7 @@ public class ConversationData : ScriptableObject
     private ConversationLine ToLine(Intermediary line) => 
         new()
         {
-            Image = images.GetImageFromTag(line.ImageTag),
+            Sprite = images.GetImageFromTag(line.ImageTag),
             Text = line.Text
         };
 
@@ -40,7 +40,7 @@ public class ConversationData : ScriptableObject
 public class ConversationLine
 {
     [field: SerializeField]
-    public Image Image { get; set; }
+    public Sprite Sprite { get; set; }
     
     [field:SerializeField]
     public string Text { get; set; }
