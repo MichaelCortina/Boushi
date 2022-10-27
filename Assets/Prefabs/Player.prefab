@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 99
   toCreate: {fileID: 2135891473114367647, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
-  createRadius: 1
+  createRadius: 1.5
 --- !u!114 &3313659662941751726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grapplableMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   maxDistance: 10
   grappleSpeed: 10
   grappleShootSpeed: 20
