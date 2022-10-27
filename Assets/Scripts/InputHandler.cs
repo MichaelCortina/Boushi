@@ -19,6 +19,7 @@ public sealed class InputHandler
             {
                 inputEvent.HoldEvent.HoldAction.Invoke();
                 inputEvent.HoldTimer.Reset();
+                inputEvent.HoldEvent.HasActivated = true;
             }
 
             if (inputEvent.StartHoldEvent is { HasActivated: false }
@@ -33,6 +34,11 @@ public sealed class InputHandler
                 inputEvent.HoldTimer.Start();
             else if (Input.GetKeyUp(key))
             {
+                if (inputEvent.HoldEvent is { HasActivated: true })
+                {
+                    inputEvent.HoldEvent.HasActivated = false;
+                    continue;
+                }
                 inputEvent.ClickEvent?.Invoke();
                 inputEvent.HoldTimer.Reset();
                 if (hasBeginHoldEvent)
@@ -87,7 +93,6 @@ public sealed class InputHandler
         public StartHoldEvent StartHoldEvent { get; set; }
 
         public readonly Stopwatch HoldTimer = new();
-        
         public bool HasHoldTimeElapsed => HoldTimer.Elapsed.Seconds >= HoldEvent.HoldSeconds;
         public bool HasDelayElapsed => HoldTimer.Elapsed.Milliseconds >= StartHoldEvent.Delay;
     }
@@ -96,6 +101,7 @@ public sealed class InputHandler
     {
         public float HoldSeconds { get; set; }
         public Action HoldAction  { get; set; }
+        public bool HasActivated { get; set; }
     }
 
     private sealed class StartHoldEvent
