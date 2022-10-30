@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,10 +16,12 @@ public class ResetOnFall : MonoBehaviour
 
     private void CheckFall(object o, ObjectMovedEventArgs e)
     {
-        var currentTileInfo = _mapManager.InfoAtPosition(e.WorldPosition);
-        if (!currentTileInfo.IsGround 
-            && (_grappleHat is null 
-                || !_grappleHat.Retracting))
+        bool onGround = e.ColliderBounds
+            .EdgePoints()
+            .Select(edgePoint => _mapManager.InfoAtPosition(edgePoint))
+            .All(tile => tile.IsGround);
+        
+        if (!onGround && (_grappleHat is null || !_grappleHat.Retracting))
             _resetable.ResetObject();
     }
 

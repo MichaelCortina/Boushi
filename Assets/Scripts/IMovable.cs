@@ -10,9 +10,11 @@ public interface IMovable
 public class ObjectMovedEventArgs : EventArgs
 {
     public Vector3 WorldPosition { get; }
+    public Bounds ColliderBounds { get; }
     
-    public ObjectMovedEventArgs(Vector3 worldPosition)
+    public ObjectMovedEventArgs(Vector3 worldPosition, Bounds colliderBounds)
     {
         WorldPosition = worldPosition;
+        ColliderBounds = colliderBounds;
     }
 }

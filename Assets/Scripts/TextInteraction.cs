@@ -9,9 +9,7 @@ public class TextInteraction : MonoBehaviour, Interactable
     [SerializeField] private KeyCode interactKey = KeyCode.X;
     [SerializeField] private ConversationData conversation;
     [SerializeField] private UnityEvent onInteract;
-    
-    public event EventHandler<InteractionEventArgs> OnInteraction;
-    public event EventHandler OnInteractionEnd;
+    [SerializeField] private UnityEvent onInteractEnd;
 
     private bool _isInteracting;
     private bool _isPlayerInBounds;
@@ -40,18 +38,17 @@ public class TextInteraction : MonoBehaviour, Interactable
     {
         if (_isPlayerInBounds && !_isInteracting)
         {
+            _isInteracting = true;
             var args = new InteractionEventArgs(conversation.Conversation);
             onInteract?.Invoke();
-            OnInteraction?.Invoke(this, args);
             GlobalEventSystem.Instance.InvokeAnyInteraction(this, args);
-            _isInteracting = true;
         }
     }
 
     public void EndInteraction()
     {
         _isInteracting = false;
-        OnInteractionEnd?.Invoke(this, EventArgs.Empty);
+        onInteractEnd?.Invoke();
         GlobalEventSystem.Instance.InvokeAnyInteractionEnd(this);
     }
 

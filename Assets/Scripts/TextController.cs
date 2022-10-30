@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class TextController : MonoBehaviour
 {
-    [SerializeField] private KeyCode nextLine;
+    [SerializeField] private KeyCode nextLine = KeyCode.X;
     [SerializeField] private TMP_Text text;
     [SerializeField] private Image portrait;
     [SerializeField] private Image frame;

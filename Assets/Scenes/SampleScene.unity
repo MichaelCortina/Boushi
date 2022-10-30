@@ -5950,6 +5950,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onInteractEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1807373102}
+        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
+        m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!212 &1759055493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6091,6 +6106,22 @@ PrefabInstance:
     - target: {fileID: 3313659662941751722, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Size.x
+      value: 0.72169673
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Size.y
+      value: 0.24209118
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.039672196
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.8179544
       objectReference: {fileID: 0}
     - target: {fileID: 3313659662941751891, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: afterImage
