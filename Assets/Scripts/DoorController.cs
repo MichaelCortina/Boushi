@@ -18,7 +18,13 @@ public class DoorController : MonoBehaviour
 
     public void CloseDoor()
     {
+        StartCoroutine(CloseDoorCoroutine());
         var doorPosition = transform.position;
         transform.position = new Vector3(doorPosition.x - distanceInX, doorPosition.y - distanceInY);
+    }
+
+    private IEnumerator CloseDoorCoroutine()
+    {
+        yield return new WaitForSeconds(timeToClose);
     }
 }
