@@ -22,7 +22,6 @@ public class TextController : MonoBehaviour
     private void AnyInteractionHandler(object sender, InteractionEventArgs args)
     {
         _conversation = StartInteraction((Interactable) sender, args.Conversation);
-        _conversation?.MoveNext();
     }
 
     private IEnumerator StartInteraction(Interactable sender, IEnumerable<ConversationLine> conversation)
