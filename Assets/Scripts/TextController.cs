@@ -13,7 +13,7 @@ public class TextController : MonoBehaviour
     [SerializeField] private TMP_Text text;
     [SerializeField] private Image portrait;
     [SerializeField] private Image frame;
-    private bool running = false;
+    
     private InputHandler _inputHandler;
     [CanBeNull] private IEnumerator _conversation;
 
@@ -21,19 +21,12 @@ public class TextController : MonoBehaviour
 
     private void AnyInteractionHandler(object sender, InteractionEventArgs args)
     {
-        if (!running){
-            _conversation = StartInteraction((Interactable)sender, args.Conversation);
-        }
-        else
-        {
-            running = false;
-        }
-        _conversation!.MoveNext();
+        _conversation = StartInteraction((Interactable) sender, args.Conversation);
+        _conversation?.MoveNext();
     }
 
     private IEnumerator StartInteraction(Interactable sender, IEnumerable<ConversationLine> conversation)
     {
-        running = true;
         text.enabled = true;
         portrait.enabled = true;
         frame.enabled = true;
