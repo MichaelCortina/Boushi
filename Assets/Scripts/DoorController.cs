@@ -12,6 +12,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] private float timeToOpen;
     public void OpenDoor()
     {
+        StartCoroutine(OpenDoorCoroutine());
         var doorPosition = transform.position;
         transform.position = new Vector3(doorPosition.x + distanceInX, doorPosition.y + distanceInY, doorPosition.z + distanceInZ);
     }
@@ -26,5 +27,10 @@ public class DoorController : MonoBehaviour
     private IEnumerator CloseDoorCoroutine()
     {
         yield return new WaitForSeconds(timeToClose);
+    }
+
+    private IEnumerator OpenDoorCoroutine()
+    {
+        yield return new WaitForSeconds(timeToOpen);
     }
 }
