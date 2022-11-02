@@ -6007,8 +6007,8 @@ MonoBehaviour:
   distanceInZ: 0
   distanceInX: 0
   distanceInY: -2
-  timeToClose: 1.5
-  timeToOpen: 1.5
+  timeToClose: 10
+  timeToOpen: 10
 --- !u!212 &1807373103
 SpriteRenderer:
   m_ObjectHideFlags: 0
