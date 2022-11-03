@@ -5677,6 +5677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 209347424}
+  groundTile: {fileID: 11400000, guid: 3ffe14c1aa4f5224b98bb86b8d6d956b, type: 2}
   tileInfo:
   - {fileID: 11400000, guid: 3ffe14c1aa4f5224b98bb86b8d6d956b, type: 2}
   - {fileID: 11400000, guid: 4fc8e63f0c84d454993bc4bb3431c593, type: 2}

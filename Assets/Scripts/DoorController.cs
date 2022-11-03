@@ -10,6 +10,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] private float distanceInY;
     [SerializeField] private float timeToClose;
     [SerializeField] private float timeToOpen;
+    
     public void OpenDoor()
     {
         StartCoroutine(OpenDoorCoroutine());

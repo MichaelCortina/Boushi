@@ -18,12 +18,8 @@ public class ConversationData : ScriptableObject
             Utils.FromJSON<List<Intermediary>>(jsonFilePath)
                 ?.Select(ToLine).ToList();
 
-    private ConversationLine ToLine(Intermediary line) => 
-        new()
-        {
-            Sprite = images.GetImageFromTag(line.ImageTag),
-            Text = line.Text
-        };
+    private ConversationLine ToLine(Intermediary line) =>
+        new(images.GetImageFromTag(line.ImageTag), line.Text);
 
     [System.Serializable]
     private class Intermediary
@@ -37,11 +33,17 @@ public class ConversationData : ScriptableObject
 }
 
 [System.Serializable]
-public class ConversationLine
+public sealed class ConversationLine
 {
-    [field: SerializeField]
-    public Sprite Sprite { get; set; }
+    [SerializeField] private Sprite sprite; 
+    [SerializeField] private string text;
+
+    public Sprite Sprite => sprite;
+    public string Text => text;
     
-    [field:SerializeField]
-    public string Text { get; set; }
+    public ConversationLine(Sprite sprite, string text)
+    {
+        this.sprite = sprite;
+        this.text = text;
+    }
 }

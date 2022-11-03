@@ -4,11 +4,9 @@ using UnityEngine.Tilemaps;
 
 public sealed class MapManager : MonoBehaviour
 {
-    [SerializeField]
-    private Tilemap map;
-
-    [SerializeField]
-    private List<TileInfo> tileInfo;
+    [SerializeField] private Tilemap map;
+    [SerializeField] private TileInfo groundTile;
+    [SerializeField] private List<TileInfo> tileInfo;
 
     private Dictionary<TileBase, TileInfo> _infoFromTiles;
 
@@ -16,7 +14,7 @@ public sealed class MapManager : MonoBehaviour
     {
         var cellPosition = map.WorldToCell(worldPosition);
         var tileBase = map.GetTile(cellPosition);
-        return _infoFromTiles[tileBase];
+        return (tileBase != null) ? _infoFromTiles[tileBase] : groundTile;
     }
         
     private void Awake()
