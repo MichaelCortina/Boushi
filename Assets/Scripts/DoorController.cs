@@ -13,24 +13,24 @@ public class DoorController : MonoBehaviour
     public void OpenDoor()
     {
         StartCoroutine(OpenDoorCoroutine());
-        var doorPosition = transform.position;
-        transform.position = new Vector3(doorPosition.x + distanceInX, doorPosition.y + distanceInY, doorPosition.z + distanceInZ);
     }
 
     public void CloseDoor()
     {
         StartCoroutine(CloseDoorCoroutine());
-        var doorPosition = transform.position;
-        transform.position = new Vector3(doorPosition.x - distanceInX, doorPosition.y - distanceInY);
     }
 
     private IEnumerator CloseDoorCoroutine()
     {
         yield return new WaitForSeconds(timeToClose);
+        var doorPosition = transform.position;
+        transform.position = new Vector3(doorPosition.x - distanceInX, doorPosition.y - distanceInY,  doorPosition.z - distanceInZ);
     }
 
     private IEnumerator OpenDoorCoroutine()
     {
         yield return new WaitForSeconds(timeToOpen);
+        var doorPosition = transform.position;
+        transform.position = new Vector3(doorPosition.x + distanceInX, doorPosition.y + distanceInY, doorPosition.z + distanceInZ);
     }
 }
