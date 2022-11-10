@@ -17,7 +17,9 @@ public sealed class MapManager : MonoBehaviour
         var currentTileBase = map.GetTile(cellPosition);
         return _infoFromTiles.GetValueOrDefault(currentTileBase, groundTile);
     }
-        
+
+    public Vector3 NearestTileCenter(Vector3 worldPosition) => map.CellToWorld(map.WorldToCell(worldPosition));
+
     private void Awake()
     {
         _infoFromTiles = new Dictionary<TileBase, TileInfo>();
