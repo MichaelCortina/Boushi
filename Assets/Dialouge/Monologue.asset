@@ -15,13 +15,13 @@ MonoBehaviour:
   images: {fileID: 11400000, guid: 6a7c8e7e5de26f34b8f0cac90f705763, type: 2}
   jsonFilePath: Assets/Dialouge/conversation_test.json
   conversationLines:
-  - <Sprite>k__BackingField: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
-    <Text>k__BackingField: Hmm, this door seems to be closed
-  - <Sprite>k__BackingField: {fileID: -174674444, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
-    <Text>k__BackingField: I wonder if there is a way to open it!
-  - <Sprite>k__BackingField: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
-    <Text>k__BackingField: ...
-  - <Sprite>k__BackingField: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
-    <Text>k__BackingField: OH, I got it!
-  - <Sprite>k__BackingField: {fileID: -174674444, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
-    <Text>k__BackingField: Those boxes should do the trick!
+  - sprite: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
+    text: Hmm, this door seems to be closed
+  - sprite: {fileID: -174674444, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
+    text: I wonder if there is a way to open it!
+  - sprite: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
+    text: ...
+  - sprite: {fileID: -20838379, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
+    text: OH, I got it!
+  - sprite: {fileID: -174674444, guid: 8d0ce852d3f706b4c85c5bc5da41ab78, type: 3}
+    text: Those boxes should do the trick!
