@@ -13,6 +13,7 @@ public class ResetToLastTile : MonoBehaviour, IResetable
 
     public void ResetObject()
     {
+        //adjust reset to center on collider instead of sprite
         _resetPosition -= _collider.bounds.center;
         var position = transform.position;
         transform.position = new Vector3(position.x + _resetPosition.x, position.y + _resetPosition.y, position.z);

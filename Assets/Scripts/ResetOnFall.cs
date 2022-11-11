@@ -9,6 +9,10 @@ using UnityEngine;
 [RequireComponent(typeof(IMovable), typeof(IResetable))]
 public class ResetOnFall : MonoBehaviour
 {
+    private enum FallCheck {ColliderCenter, ColliderEdges}
+
+    [SerializeField] private FallCheck fallCheck;
+    
     private IMovable _movable;
     private IResetable _resetable;
     private MapManager _mapManager;
@@ -16,11 +20,13 @@ public class ResetOnFall : MonoBehaviour
 
     private void CheckFall(object o, ObjectMovedEventArgs e)
     {
-        bool onGround = e.ColliderBounds
-            .EdgePoints()
-            .Select(edgePoint => _mapManager.InfoAtPosition(edgePoint))
-            .All(tile => tile.IsGround);
-        
+        bool onGround = fallCheck is FallCheck.ColliderEdges
+            ? e.ColliderBounds
+                .EdgePoints()
+                .Select(edgePoint => _mapManager.InfoAtPosition(edgePoint))
+                .All(tile => tile.IsGround)
+            : _mapManager.InfoAtPosition(e.ColliderBounds.center).IsGround;
+
         if (!onGround && (_grappleHat is null || !_grappleHat.Retracting))
             _resetable.ResetObject();
     }
