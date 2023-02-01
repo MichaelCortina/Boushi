@@ -6023,7 +6023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13274053d63f48639b39e22e44a35fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDistance: {x: 0, y: 0, z: 0}
+  openDistance: {x: 0, y: -2, z: 0}
   timeToClose: 1
   timeToOpen: 0.5
 --- !u!212 &1807373103
