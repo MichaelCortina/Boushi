@@ -1,13 +1,14 @@
 
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public class CanBePickedUp : MonoBehaviour
 {
+    [SerializeField] private KeyCode _pickUpKey = KeyCode.E;
     private bool _canPickUp;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _canPickUp)
+        if (Input.GetKeyDown(_pickUpKey) && _canPickUp)
         {
             Destroy(gameObject);
             _canPickUp = false;
