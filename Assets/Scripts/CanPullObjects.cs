@@ -1,38 +1,56 @@
 ﻿using System;
+using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class CanPullObjects : MonoBehaviour
 {
-    [SerializeField] private KeyCode pullButton = KeyCode.A;
-    private Transform _beingPulled;
-    private Transform _parentOfBeingPulled;
+    [SerializeField] private KeyCode pullKey = KeyCode.LeftShift;
+    private Rigidbody2D _beingPulled;
 
+    private Vector2 _prevPosition;
+    private bool _isPullingObject;
+    
     private void Update()
     {
         if (_beingPulled is null) return;
-        
-        if (Input.GetKeyDown(pullButton))
-            _beingPulled.parent = transform;
 
-        if (Input.GetKeyUp(pullButton))
-            _beingPulled.parent = _parentOfBeingPulled;
+        if (Input.GetKeyDown(pullKey))
+            _isPullingObject = true;
+
+        if (Input.GetKeyUp(pullKey))
+            _isPullingObject = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         var movable = collision.gameObject.GetComponent<IMovable>();
 
-        if (movable is null || _beingPulled != null) return;
-           
-        _beingPulled = collision.transform;
-        _parentOfBeingPulled = _beingPulled.parent;
+        if (movable is null || _beingPulled is not null) return;
+        
+        _beingPulled = collision.rigidbody;
+    }
+    
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.rigidbody == _beingPulled)
+        {
+            _beingPulled = null;
+            _isPullingObject = false;
+        }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void FixedUpdate()
     {
-        if (collision.transform != _beingPulled) return;
+        Vector2 currentPosition = transform.position;
+        
+        if (_isPullingObject)
+        {
+            Vector2 changeInPosition = currentPosition - _prevPosition;
+            
+            _beingPulled.position += changeInPosition/2;
+        }
 
-        _beingPulled.parent = _parentOfBeingPulled;
-        _beingPulled = _parentOfBeingPulled = null;
+        _prevPosition = currentPosition;
     }
 }
