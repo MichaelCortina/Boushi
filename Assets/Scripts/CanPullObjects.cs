@@ -48,7 +48,7 @@ public class CanPullObjects : MonoBehaviour
         {
             Vector2 changeInPosition = currentPosition - _prevPosition;
             
-            _beingPulled.position += changeInPosition/2;
+            _beingPulled.position += changeInPosition;
         }
 
         _prevPosition = currentPosition;
