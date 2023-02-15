@@ -3,46 +3,25 @@ using UnityEngine;
 
 public class SimpleCameraFollow : MonoBehaviour
 {
-    [SerializeField] private Collider2D cameraCollider;
     [SerializeField] private Collider2D mapCollider;
     [SerializeField] private Transform player;
-    [SerializeField] private float cameraSpeed;
-    [SerializeField] private KeyCode centerCamera;
+    [SerializeField] private Vector3 cameraVelocity;
+    [SerializeField] private float smoothTime = 0.3f;
 
-    private InputHandler _inputHandler;
     private bool _centeringCamera;
-
-    private void Update() => _inputHandler.HandleInput();
     
     private void FixedUpdate()
     {
-                
         var cameraPosition = transform.position;
         var playerPosition = player.position;
         
-        if (_centeringCamera)
-            cameraPosition = Vector3.MoveTowards(cameraPosition, playerPosition, cameraSpeed);
+        // move camera smoothly towards player
+        cameraPosition = Vector3.SmoothDamp(cameraPosition, playerPosition, ref cameraVelocity, smoothTime);
         
-        else if (!cameraCollider.bounds.Contains(new Vector3(playerPosition.x, playerPosition.y,
-                         cameraCollider.transform.position.z)))
-            cameraPosition = Vector3.MoveTowards(
-                cameraPosition,
-                playerPosition,
-                Vector2.Distance(
-                    playerPosition,
-                    cameraCollider.ClosestPoint(playerPosition)));
-
+        // clamp position within the map boundaries
         cameraPosition = mapCollider.bounds.ClosestPoint(cameraPosition);
-        transform.position = cameraPosition.Set(z: transform.position.z);
         
-        if (_centeringCamera)
-            _centeringCamera = Math.Abs(cameraPosition.x - playerPosition.x) > 0.1 
-                               || Math.Abs(cameraPosition.y - playerPosition.y) > 0.1;
+        // set camera position while maintaining z axis
+        transform.position = cameraPosition.Set(z: transform.position.z);
     }
-
-    private void Awake() =>
-        _inputHandler = new InputHandler()
-            .SetClickEvent(centerCamera, CenterCamera);
-
-    private void CenterCamera() => _centeringCamera = true;
 }
