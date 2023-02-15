@@ -5,16 +5,15 @@ public interface IMovable
 {
     event EventHandler<ObjectMovedEventArgs> OnObjectMoved;
     void MoveObject(Vector2 direction);
+    void ApplySpeedModifier(float speedPercentage);
 }
 
 public class ObjectMovedEventArgs : EventArgs
 {
-    public Vector3 WorldPosition { get; }
     public Bounds ColliderBounds { get; }
 
-    public ObjectMovedEventArgs(Vector3 worldPosition, Bounds colliderBounds)
+    public ObjectMovedEventArgs(Bounds colliderBounds)
     {
-        WorldPosition = worldPosition;
         ColliderBounds = colliderBounds;
     }
 }
