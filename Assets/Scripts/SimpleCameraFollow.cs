@@ -8,8 +8,6 @@ public class SimpleCameraFollow : MonoBehaviour
     [SerializeField] private Vector3 cameraVelocity;
     [SerializeField] private float smoothTime = 0.3f;
 
-    private bool _centeringCamera;
-    
     private void FixedUpdate()
     {
         var cameraPosition = transform.position;
