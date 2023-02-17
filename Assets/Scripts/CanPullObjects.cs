@@ -71,8 +71,12 @@ public class CanPullObjects : MonoBehaviour
         if (_isPullingObject)
         {
             Vector2 changeInPosition = currentPosition - _prevPosition;
-            
-            _beingPulled.position += changeInPosition;
+            Vector2 prevClosestPoint = _beingPulled.ClosestPoint(_prevPosition);
+            Vector2 currentClosestPoint = _beingPulled.ClosestPoint(currentPosition);
+
+            // do not allow object to be pulled side to side
+            if (Vector2.Distance(prevClosestPoint, currentClosestPoint) == 0)
+                _beingPulled.position += changeInPosition;
         }
 
         _prevPosition = currentPosition;
