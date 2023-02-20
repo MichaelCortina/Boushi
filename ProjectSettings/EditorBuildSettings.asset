@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial/1GetResetHat.unity
     guid: 6cccbf60bc4e3974e9e1d30f12ead4d2
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Maze.unity
+    guid: 1388f1257cbc017499a32fb6f4b2ffab
   m_configObjects: {}
