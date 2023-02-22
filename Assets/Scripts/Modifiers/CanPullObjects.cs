@@ -72,11 +72,13 @@ namespace Modifiers
         
             if (_isPullingObject)
             {
+                // calculate distance and direction traveled by player last frame
                 Vector2 changeInPosition = currentPosition - _prevPosition;
                 Vector2 prevClosestPoint = _beingPulled.ClosestPoint(_prevPosition);
                 Vector2 currentClosestPoint = _beingPulled.ClosestPoint(currentPosition);
 
-                // do not allow object to be pulled side to side
+                // do not allow an object to be pulled side to side
+                // otherwise move object in the same direction the player moved
                 if (Vector2.Distance(prevClosestPoint, currentClosestPoint) == 0)
                     _beingPulled.position += changeInPosition;
             }
