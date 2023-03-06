@@ -1736,7 +1736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009560397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.18, y: -0.5, z: -0.01}
+  m_LocalPosition: {x: -2.5, y: -0.1, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   mapCollider: {fileID: 547556604}
   player: {fileID: 720224940}
   cameraVelocity: {x: 0, y: 0, z: 0}
-  smoothTime: 0.4
+  smoothTime: 0.1
 --- !u!81 &1177638187
 AudioListener:
   m_ObjectHideFlags: 0
