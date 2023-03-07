@@ -865,10 +865,6 @@ MonoBehaviour:
   position: {x: -7, y: -1, z: 0}
   length: 1
   height: 1
-  startX: -7
-  startY: -1
-  endX: -6
-  endY: 0
 --- !u!4 &806597996
 Transform:
   m_ObjectHideFlags: 0
@@ -971,6 +967,10 @@ PrefabInstance:
     - target: {fileID: 856267941918100051, guid: 6d171b78565553a4db487d88c915bdae, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746747997710642486, guid: 6d171b78565553a4db487d88c915bdae, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d171b78565553a4db487d88c915bdae, type: 3}
