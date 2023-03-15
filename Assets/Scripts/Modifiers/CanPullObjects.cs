@@ -68,22 +68,22 @@ namespace Modifiers
         /// player's movements
         private void FixedUpdate()
         {
-            //-Vector2 currentPosition = _currentCollider.bounds.center;
+            Vector2 currentPosition = _currentCollider.bounds.center;
         
             if (_isPullingObject)
             {
                 // calculate distance and direction traveled by player last frame
-                //-Vector2 changeInPosition = currentPosition - _prevPosition;
-                //-Vector2 prevClosestPoint = _beingPulled.ClosestPoint(_prevPosition);
-                //-Vector2 currentClosestPoint = _beingPulled.ClosestPoint(currentPosition);
+                Vector2 changeInPosition = currentPosition - _prevPosition;
+                Vector2 prevClosestPoint = _beingPulled.ClosestPoint(_prevPosition);
+                Vector2 currentClosestPoint = _beingPulled.ClosestPoint(currentPosition);
 
                 // do not allow an object to be pulled side to side
                 // otherwise move object in the same direction the player moved
-                //-if (Vector2.Distance(prevClosestPoint, currentClosestPoint) == 0)
-                    //-_beingPulled.position += changeInPosition;
+                if (Vector2.Distance(prevClosestPoint, currentClosestPoint) == 0)
+                    _beingPulled.position += changeInPosition;
             }
 
-            //-_prevPosition = currentPosition;
+            _prevPosition = currentPosition;
         }
 
         private void Awake()
