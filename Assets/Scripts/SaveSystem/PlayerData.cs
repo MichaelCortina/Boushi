@@ -1,24 +1,29 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+namespace SaveSystem
 {
-    private ArrayList completedLevels;
-    private string sceneName;
-    private Vector3 playerPosition;
-    public ArrayList getCompletedLevels()
+    public class PlayerData
     {
-        return completedLevels;
-    }
+        private ArrayList completedLevels;
+    
+        private ArrayList visitedLevels;
+    
+        private string sceneName;
 
-    public string getSceneName()
-    {
-        return sceneName;
-    }
+        private float[] playerPosition;
 
-    public Vector3 getPlayerPosition()
-    {
-        return playerPosition;
+        public PlayerData(PlayerInfo playerInfo)
+        {
+            completedLevels = playerInfo.GetCompletedLevels();
+        
+            visitedLevels = playerInfo.GetVisitedLevels();
+        
+            sceneName = playerInfo.GetScene().name;
+
+            playerPosition = new float[3];
+            playerPosition[0] = playerInfo.transform.position.x;
+            playerPosition[1] = playerInfo.transform.position.y;
+            playerPosition[2] = playerInfo.transform.position.z;
+        }
     }
 }

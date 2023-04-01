@@ -1004,6 +1004,25 @@ MonoBehaviour:
   resetKey: 114
   resetTime: 3
   afterImage: {fileID: 663865723}
+--- !u!1 &1068364927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 856267941918100051, guid: 6d171b78565553a4db487d88c915bdae, type: 3}
+  m_PrefabInstance: {fileID: 1068364924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1068364928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068364927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbb49a4601a433581a7a972153c3e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currScene:
+    m_Handle: 0
 --- !u!1001 &1087024946
 PrefabInstance:
   m_ObjectHideFlags: 0

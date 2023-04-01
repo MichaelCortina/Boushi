@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private IMovable _movable;
-    private InventorySystem inventory;
+    //private InventorySystem inventory;
 
     private void Update()
     {
@@ -18,6 +18,6 @@ public class PlayerInput : MonoBehaviour
     private void Awake()
     {
         _movable = GetComponent<IMovable>();
-        inventory = new InventorySystem();
+        //inventory = new InventorySystem();
     }
 }
