@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadNewScene : MonoBehaviour
 {
@@ -13,8 +12,6 @@ public class LoadNewScene : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Return) && _canEnter)
         {
-            //SceneManager.LoadScene does not exist by itself? Tried to add using
-            //UnityEngine.SceneManagement
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
         }
         

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -7,56 +8,44 @@ namespace SaveSystem
 {
     public class PlayerInfo : MonoBehaviour
     {
-        private ArrayList completedLevels;
-        private ArrayList visitedLevels;
         [SerializeField] private Scene currScene;
 
+        public List<Scene> CompletedLevels { get; } = new();
+        public List<Scene> VisitedLevels { get; } = new();
 
+        public Scene Scene => currScene;
+        
+        
         #region Adding Methods
     
-        public void AddCompletedLevel(Object completed)
+        public void AddCompletedLevel(Scene completed)
         {
-            completedLevels.Add(completed);
+            CompletedLevels.Add(completed);
         }
-        public void AddVisitedLevel(Object visited)
+        public void AddVisitedLevel(Scene visited)
         {
-            visitedLevels.Add(visited);
+            VisitedLevels.Add(visited);
         }
     
         #endregion
     
         #region Removing Methods
-        public void RemoveCompletedLevel(Object completed)
+        public void RemoveCompletedLevel(Scene completed)
         {
-            completedLevels.Remove(completed);
+            CompletedLevels.Remove(completed);
         }
-        public void RemoveVisitedLevel(Object visited)
+        public void RemoveVisitedLevel(Scene visited)
         {
-            visitedLevels.Remove(visited);
-        }
-        #endregion
-    
-        #region getters
-        public ArrayList GetCompletedLevels()
-        {
-            return completedLevels;
-        }
-        public ArrayList GetVisitedLevels()
-        {
-            return visitedLevels;
-        }
-        public Scene GetScene()
-        {
-            return currScene;
+            VisitedLevels.Remove(visited);
         }
         #endregion
 
         private void Awake()
         {
             currScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-            if(!visitedLevels.Contains(currScene))
+            if(!VisitedLevels.Contains(currScene))
             {
-                visitedLevels.Add(currScene);
+                VisitedLevels.Add(currScene);
             }
         }
     

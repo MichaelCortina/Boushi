@@ -1,12 +1,15 @@
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SaveSystem
 {
     public class PlayerData
     {
-        private ArrayList completedLevels;
+        private List<Scene> completedLevels;
     
-        private ArrayList visitedLevels;
+        private List<Scene> visitedLevels;
     
         private string sceneName;
 
@@ -14,11 +17,11 @@ namespace SaveSystem
 
         public PlayerData(PlayerInfo playerInfo)
         {
-            completedLevels = playerInfo.GetCompletedLevels();
+            completedLevels = playerInfo.CompletedLevels;
         
-            visitedLevels = playerInfo.GetVisitedLevels();
+            visitedLevels = playerInfo.VisitedLevels;
         
-            sceneName = playerInfo.GetScene().name;
+            sceneName = playerInfo.Scene.name;
 
             playerPosition = new float[3];
             playerPosition[0] = playerInfo.transform.position.x;
