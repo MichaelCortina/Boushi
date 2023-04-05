@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 /// well as extending to the right, length tiles.
 public class BridgeController : MonoBehaviour
 {
-    [SerializeField] private bool isActivated = false;
+    [SerializeField] private bool isActivated;
     private bool _backingActivated;
     
     [SerializeField] private Tile on;
@@ -31,10 +31,9 @@ public class BridgeController : MonoBehaviour
 
     private void OnValidate()
     {
-        if (isActivated != _backingActivated)
-        {
-            isActivated = _backingActivated;
-            ChangeStates();
-        }
+        if (isActivated == _backingActivated) return;
+        
+        isActivated = _backingActivated;
+        ChangeStates();
     }
 }
