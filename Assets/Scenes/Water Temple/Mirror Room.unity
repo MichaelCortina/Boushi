@@ -522,7 +522,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &668032884
 MonoBehaviour:
@@ -654,7 +654,7 @@ Transform:
   m_Children:
   - {fileID: 912487293}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1128705478
 GameObject:
@@ -738,7 +738,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1202282571
 GameObject:
@@ -774,7 +774,7 @@ Transform:
   - {fileID: 514060619}
   - {fileID: 1384849341}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230207722
 GameObject:
@@ -885,7 +885,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384849340
 GameObject:
@@ -1173,7 +1173,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &1708787469
 LineRenderer:
@@ -1700,8 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbb49a4601a433581a7a972153c3e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currScene:
-    m_Handle: 0
 --- !u!114 &1874365861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,12 +1819,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877168235}
   m_LocalRotation: {x: -0, y: -0, z: 0.010804762, w: 0.99994165}
-  m_LocalPosition: {x: -12.439234, y: -6.1622934, z: 0}
+  m_LocalPosition: {x: -12.18, y: -6.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1931763947
 PrefabInstance:

@@ -16,7 +16,7 @@ public sealed class MapManager : MonoBehaviour
         var cellPosition = map.WorldToCell(worldPosition);
         var currentTileBase = map.GetTile(cellPosition);
         return _infoFromTiles.GetValueOrDefault(currentTileBase, groundTile);
-    }
+    }   
 
     public Vector3 NearestTileCenter(Vector3 worldPosition)
     {
