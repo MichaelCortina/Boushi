@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941ea2eef0ba2af45bec5268c041253c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 1GetResetHat
+  scene: 3GetResetHat
 --- !u!212 &121327436
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1320,6 +1320,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3313659662941751891, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751891, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: afterImage
       value: 
       objectReference: {fileID: 0}
@@ -2068,7 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941ea2eef0ba2af45bec5268c041253c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Bridge
+  scene: Awake
 --- !u!212 &949202956
 SpriteRenderer:
   m_ObjectHideFlags: 0
