@@ -1315,6 +1315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boushi
       objectReference: {fileID: 0}
+    - target: {fileID: 3313659662941751888, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3313659662941751891, guid: 73ebdbcdf252046748b56d98573d62ec, type: 3}
       propertyPath: afterImage
       value: 
@@ -1929,19 +1933,7 @@ MonoBehaviour:
   conversation: {fileID: 11400000, guid: 5016da3b6db914595b823b819d19b6da, type: 2}
   onInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553643948}
-        m_TargetAssemblyTypeName: DoorController, Assembly-CSharp
-        m_MethodName: CloseDoor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onInteractEnd:
     m_PersistentCalls:
       m_Calls: []
@@ -1952,6 +1944,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1827100803}
     m_Modifications:
+    - target: {fileID: 4039856945516522818, guid: 1e3dd9fda8f43524bbec65cab93d16af, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4039856945516522841, guid: 1e3dd9fda8f43524bbec65cab93d16af, type: 3}
       propertyPath: m_Name
       value: Wall (2)
@@ -2641,6 +2637,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2135891473114367640, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
+      propertyPath: canMoveXAxis
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2135891473114367641, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2696,6 +2696,10 @@ PrefabInstance:
     - target: {fileID: 2135891473114367643, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
       propertyPath: m_Mass
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135891473114367643, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
+      propertyPath: m_Constraints
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2135891473114367647, guid: a1b2dece667094ed1a68ec6b9d4d0bb0, type: 3}
       propertyPath: m_Name
