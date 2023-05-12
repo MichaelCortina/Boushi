@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Tutorial/Bridge.unity
+    path: Assets/Scenes/Tutorial/4Bridge.unity
     guid: c40338f1c0efbab4fbb5494a17d8c8dd
   - enabled: 1
-    path: Assets/Scenes/Tutorial/1GetResetHat.unity
+    path: Assets/Scenes/Tutorial/3GetResetHat.unity
     guid: 6cccbf60bc4e3974e9e1d30f12ead4d2
   - enabled: 1
-    path: Assets/Scenes/Tutorial/Maze.unity
+    path: Assets/Scenes/Tutorial/2Maze.unity
     guid: 1388f1257cbc017499a32fb6f4b2ffab
   m_configObjects: {}
