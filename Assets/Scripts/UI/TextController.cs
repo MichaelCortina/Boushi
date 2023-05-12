@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using TMPro;
 using Unity.VisualScripting;
@@ -19,9 +20,9 @@ public class TextController : MonoBehaviour
 
     private void Update() => _inputHandler.HandleInput();
 
-    private void AnyInteractionHandler(object sender, InteractionEventArgs args)
+    public void StartTextInteractionHandler(TextInteraction interactable)
     {
-        _conversation = StartInteraction((Interactable) sender, args.Conversation);
+        _conversation = StartInteraction(interactable, interactable.Lines);
     }
 
     private IEnumerator StartInteraction(Interactable sender, IEnumerable<ConversationLine> conversation)
@@ -39,7 +40,7 @@ public class TextController : MonoBehaviour
         sender.EndInteraction();
     }
 
-    private void AnyInteractionEndHandler(object sender, EventArgs args)
+    public void EndTextInteractionHandler()
     {
         text.enabled = false;
         portrait.enabled = false;
@@ -47,19 +48,9 @@ public class TextController : MonoBehaviour
         _conversation = null;
     }
 
-    private void OnEnable()
+    private void Awake()
     {
-        GlobalEventSystem.Instance.OnAnyInteraction += AnyInteractionHandler;
-        GlobalEventSystem.Instance.OnAnyInteractionEnd += AnyInteractionEndHandler;
-    }
-    
-    private void OnDisable()
-    {
-        GlobalEventSystem.Instance.OnAnyInteraction -= AnyInteractionHandler;
-        GlobalEventSystem.Instance.OnAnyInteractionEnd -= AnyInteractionEndHandler;
-    }
-
-    private void Awake() =>
         _inputHandler = new InputHandler()
             .SetClickEvent(nextLine, () => _conversation?.MoveNext());
+    }
 }

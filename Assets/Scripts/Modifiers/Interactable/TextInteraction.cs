@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class TextInteraction : MonoBehaviour, Interactable
 {
     [SerializeField] private KeyCode interactKey = KeyCode.X;
     [SerializeField] private ConversationData conversation;
+    
     [SerializeField] private UnityEvent onInteract;
     [SerializeField] private UnityEvent onInteractEnd;
 
@@ -12,7 +15,9 @@ public class TextInteraction : MonoBehaviour, Interactable
     private bool _isPlayerInBounds;
     
     private InputHandler _inputHandler;
-    
+
+    public IEnumerable<ConversationLine> Lines => conversation.Conversation;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -36,9 +41,7 @@ public class TextInteraction : MonoBehaviour, Interactable
         if (_isPlayerInBounds && !_isInteracting)
         {
             _isInteracting = true;
-            var args = new InteractionEventArgs(conversation.Conversation);
             onInteract?.Invoke();
-            GlobalEventSystem.Instance.InvokeAnyInteraction(this, args);
         }
     }
 
@@ -46,7 +49,6 @@ public class TextInteraction : MonoBehaviour, Interactable
     {
         _isInteracting = false;
         onInteractEnd?.Invoke();
-        GlobalEventSystem.Instance.InvokeAnyInteractionEnd(this);
     }
 
     private void Update() => _inputHandler.HandleInput();
