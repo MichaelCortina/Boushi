@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Reflection;
+using InventorySystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerData
@@ -10,6 +12,8 @@ public class PlayerData
     private string sceneName;
 
     private List<Scene> visitedLevels;
+    
+    public Inventory inventory;
 
     public PlayerData(PlayerInfo playerInfo)
     {
@@ -23,5 +27,10 @@ public class PlayerData
         playerPosition[0] = playerInfo.transform.position.x;
         playerPosition[1] = playerInfo.transform.position.y;
         playerPosition[2] = playerInfo.transform.position.z;
+    }
+
+    public Inventory GetInv()
+    {
+        return inventory;
     }
 }

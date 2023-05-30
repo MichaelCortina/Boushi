@@ -1,16 +1,19 @@
 
+using InventorySystem;
 using UnityEngine;
 
 public class CanBePickedUp : MonoBehaviour
 {
     [SerializeField] private KeyCode _pickUpKey = KeyCode.E;
     private bool _canPickUp;
+    private ItemData item;
 
     private void Update()
     {
         if (Input.GetKeyDown(_pickUpKey) && _canPickUp)
         {
             Destroy(gameObject);
+            inventory.AddItem(item.TakeItem());
             _canPickUp = false;
         }
         
