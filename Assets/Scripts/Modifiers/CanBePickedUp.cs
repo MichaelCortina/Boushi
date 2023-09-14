@@ -13,7 +13,7 @@ public class CanBePickedUp : MonoBehaviour
         if (Input.GetKeyDown(_pickUpKey) && _canPickUp)
         {
             Destroy(gameObject);
-            inventory.AddItem(item.TakeItem());
+            //inventory.AddItem(item.TakeItem());
             _canPickUp = false;
         }
         
