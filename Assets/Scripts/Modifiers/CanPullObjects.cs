@@ -1,14 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Modifiers
 {
     public class CanPullObjects : MonoBehaviour
     {
         [SerializeField] private KeyCode pullKey = KeyCode.LeftShift;
-        private IMovable _currentMovable;
-        private Collider2D _currentCollider;
+        private IMovable _thisMovable;
+        private Collider2D _thisCollider;
     
         private Rigidbody2D _beingPulled;
+        private Vector2 _pullDirection; // direction in which _beingPulled can move
 
         private Vector2 _prevPosition;
         private bool _isPullingObject;
@@ -25,16 +27,35 @@ namespace Modifiers
                 _isPullingObject = true;
             
                 //when pulling slow current object based on mass of object being pulled
-                _currentMovable.ApplySpeedModifier(1/_beingPulled.mass);
+                _thisMovable.ApplySpeedModifier(1/_beingPulled.mass);
             }
 
             if (Input.GetKeyUp(pullKey))
             {
                 // when object is released revert current object to previous speed
                 if (_isPullingObject)
-                    _currentMovable.ApplySpeedModifier(_beingPulled.mass);
+                    _thisMovable.ApplySpeedModifier(_beingPulled.mass);
             
                 _isPullingObject = false;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            // check if trigger entered was an object that can be pulled
+            CanBePulled canBePulled = other.GetComponent<CanBePulled>();
+
+            // only track new object to pull if not pulling anything else already
+            if (canBePulled != null && !_isPullingObject)
+            {
+                // get the direction in which canBePulled, can be pulled
+                Vector2? direction = canBePulled.GetDirection(_thisCollider);
+                
+                if (direction != null)
+                {
+                    _beingPulled = canBePulled.GetComponent<Rigidbody2D>();
+                    _pullDirection = (Vector2) direction;
+                }
             }
         }
 
@@ -58,7 +79,7 @@ namespace Modifiers
         
             // when object is released revert current object to previous speed
             if (_isPullingObject)
-                _currentMovable.ApplySpeedModifier(_beingPulled.mass);
+                _thisMovable.ApplySpeedModifier(_beingPulled.mass);
         
             _beingPulled = null;
             _isPullingObject = false;
@@ -68,7 +89,7 @@ namespace Modifiers
         /// player's movements
         private void FixedUpdate()
         {
-            Vector2 currentPosition = _currentCollider.bounds.center;
+            Vector2 currentPosition = _thisCollider.bounds.center;
         
             if (_isPullingObject)
             {
@@ -88,8 +109,8 @@ namespace Modifiers
 
         private void Awake()
         {
-            _currentMovable = GetComponent<IMovable>();
-            _currentCollider = GetComponent<Collider2D>();
+            _thisMovable = GetComponent<IMovable>();
+            _thisCollider = GetComponent<Collider2D>();
         }
     }
 }
