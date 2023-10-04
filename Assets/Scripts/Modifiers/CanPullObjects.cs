@@ -1,4 +1,6 @@
 ﻿using System;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Modifiers
@@ -6,12 +8,12 @@ namespace Modifiers
     public class CanPullObjects : MonoBehaviour
     {
         [SerializeField] private KeyCode pullKey = KeyCode.LeftShift;
+        
         private IMovable _thisMovable;
         private Collider2D _thisCollider;
     
-        private Rigidbody2D _beingPulled;
+        [CanBeNull] private Rigidbody2D _beingPulled;
         private Vector2 _pullDirection; // direction in which _beingPulled can move
-
         private Vector2 _prevPosition;
         private bool _isPullingObject;
 
@@ -59,30 +61,16 @@ namespace Modifiers
             }
         }
 
-        /// when the current object comes in contact with another object that can
-        /// be pulled, store a reference to the object unless another has already
-        /// been stored.
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerExit2D(Collider2D other)
         {
-            var movable = collision.gameObject.GetComponent<IMovable>();
-
-            if (movable is null || _beingPulled is not null) return;
-
-            _beingPulled = collision.rigidbody;
-        }
-    
-        /// when the current object loses contact with the object being pulled,
-        /// stop pulling it.
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (_beingPulled is null || collision.rigidbody != _beingPulled) return;
-        
-            // when object is released revert current object to previous speed
-            if (_isPullingObject)
-                _thisMovable.ApplySpeedModifier(_beingPulled.mass);
-        
-            _beingPulled = null;
-            _isPullingObject = false;
+            // if this exits collider for _beingPulled remove _beingPulled
+            Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+            
+            if (otherRb != null && otherRb == _beingPulled)
+            {
+                _beingPulled = null;
+                _isPullingObject = false;
+            }
         }
 
         /// if an object is being pulled, update its position to follow the
@@ -90,18 +78,13 @@ namespace Modifiers
         private void FixedUpdate()
         {
             Vector2 currentPosition = _thisCollider.bounds.center;
-        
+            
             if (_isPullingObject)
             {
-                // calculate distance and direction traveled by player last frame
-                Vector2 changeInPosition = currentPosition - _prevPosition;
-                Vector2 prevClosestPoint = _beingPulled.ClosestPoint(_prevPosition);
-                Vector2 currentClosestPoint = _beingPulled.ClosestPoint(currentPosition);
-
-                // do not allow an object to be pulled side to side
-                // otherwise move object in the same direction the player moved
-                if (Vector2.Distance(prevClosestPoint, currentClosestPoint) == 0)
-                    _beingPulled.position += changeInPosition;
+                // move _beingPulled by pullVector
+                Vector2 pullVector = (currentPosition - _prevPosition) * _pullDirection;
+                Vector2 beingPulledPosition = _beingPulled!.position;
+                _beingPulled.MovePosition(beingPulledPosition + pullVector);
             }
 
             _prevPosition = currentPosition;
@@ -111,6 +94,7 @@ namespace Modifiers
         {
             _thisMovable = GetComponent<IMovable>();
             _thisCollider = GetComponent<Collider2D>();
+            _prevPosition = _thisCollider.bounds.center;
         }
     }
 }
