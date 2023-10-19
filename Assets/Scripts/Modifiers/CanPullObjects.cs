@@ -12,10 +12,10 @@ namespace Modifiers
         private IMovable _thisMovable;
         private Collider2D _thisCollider;
     
-        [CanBeNull] private Rigidbody2D _beingPulled;
-        private Vector2 _pullDirection; // direction in which _beingPulled can move
+        [SerializeField] [CanBeNull] private Rigidbody2D _beingPulled;
+        [SerializeField] Vector2 _pullDirection; // direction in which _beingPulled can move
         private Vector2 _prevPosition;
-        private bool _isPullingObject;
+        [SerializeField] bool _isPullingObject;
 
         /// when in contact with an object that can be pulled, if the
         /// pullKey is pressed, begin pulling the object. When the key
@@ -45,13 +45,15 @@ namespace Modifiers
         private void OnTriggerEnter2D(Collider2D other)
         {
             // check if trigger entered was an object that can be pulled
-            CanBePulled canBePulled = other.GetComponent<CanBePulled>();
+            // (this is working under the assumption that the pull colliders are a child
+            // of the object that can be pulled
+            CanBePulled canBePulled = other.GetComponentInParent<CanBePulled>();
 
             // only track new object to pull if not pulling anything else already
             if (canBePulled != null && !_isPullingObject)
             {
                 // get the direction in which canBePulled, can be pulled
-                Vector2? direction = canBePulled.GetDirection(_thisCollider);
+                Vector2? direction = canBePulled.GetDirection(other);
                 
                 if (direction != null)
                 {
@@ -64,10 +66,12 @@ namespace Modifiers
         private void OnTriggerExit2D(Collider2D other)
         {
             // if this exits collider for _beingPulled remove _beingPulled
-            Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+            Rigidbody2D otherRb = other.GetComponentInParent<Rigidbody2D>();
             
             if (otherRb != null && otherRb == _beingPulled)
             {
+                if (_isPullingObject)
+                    _thisMovable.ApplySpeedModifier(_beingPulled.mass);
                 _beingPulled = null;
                 _isPullingObject = false;
             }
