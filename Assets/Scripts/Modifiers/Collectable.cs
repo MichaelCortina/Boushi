@@ -1,19 +1,20 @@
 
 using InventorySystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class CanBePickedUp : MonoBehaviour
+public class Collectable : MonoBehaviour
 {
-    [SerializeField] private KeyCode _pickUpKey = KeyCode.E;
+    [SerializeField] private KeyCode pickUpKey = KeyCode.E;
+    [SerializeField] private ItemData data;
     private bool _canPickUp;
-    private ItemData item;
 
     private void Update()
     {
-        if (Input.GetKeyDown(_pickUpKey) && _canPickUp)
+        if (Input.GetKeyDown(pickUpKey) && _canPickUp)
         {
             Destroy(gameObject);
-            //inventory.AddItem(item.TakeItem());
+            //inventory.AddItem(new ItemInstance(data));
             _canPickUp = false;
         }
         

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace InventorySystem
 {
     [CreateAssetMenu]
-    public class FixedInventoryItem : ScriptableObject
+    public class KeyItemData : ScriptableObject
     {
         public bool hasItem;
         public string itemName;

@@ -10634,7 +10634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355ae3b8c14385944bc79ce94f4a396e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickUpKey: 101
+  pickUpKey: 101
+  data: {fileID: 0}
 --- !u!61 &1906468984
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10789,6 +10790,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d171b78565553a4db487d88c915bdae, type: 3}
+--- !u!1 &856267943057802222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2746747997710642481, guid: 6d171b78565553a4db487d88c915bdae, type: 3}
+  m_PrefabInstance: {fileID: 856267943057802221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &856267943057802223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856267943057802222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c95df164e414ea6b4441fa3d4747bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryData: {fileID: 11400000, guid: 593edd9aa7d8c44449ca3c654c478bea, type: 2}
+  saveItems: 0
 --- !u!1001 &2464885659386804236
 PrefabInstance:
   m_ObjectHideFlags: 0

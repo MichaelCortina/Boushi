@@ -3,22 +3,25 @@ using UnityEngine;
 
 namespace InventorySystem
 {
-    public class Inventory : ScriptableObject
+    public class Inventory : MonoBehaviour
         {
-            public ItemData newItemType;
-            public List<ItemInstance> items = new();
-            void Start()
-            {
-                items.Add(new ItemInstance(newItemType));
-            }
-            
+            [SerializeField] private InventoryData inventoryData;
+            [SerializeField] private List<ItemInstance> items = new();
+            [SerializeField] private bool saveItems = false;
+                
             public void AddItem(ItemInstance itemToAdd)
             {
-                items.Add(itemToAdd);
+                if (saveItems)
+                    inventoryData.Bag.Add(itemToAdd);
+                else
+                    items.Add(itemToAdd);
             }
             public void RemoveItem(ItemInstance itemToRemove)
             {
-                items.Remove(itemToRemove);
+                if (saveItems)
+                    inventoryData.Bag.Remove(itemToRemove);
+                else
+                    items.Remove(itemToRemove);
             }
         }
 }
