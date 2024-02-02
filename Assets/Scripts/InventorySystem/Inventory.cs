@@ -22,7 +22,7 @@ namespace InventorySystem
 
             private void Awake()
             {
-                _items = saveItems ? new List<ItemInstance>() : inventoryData.bag;
+                _items = saveItems ? inventoryData.bag : new List<ItemInstance>();
             }
         }
 }
