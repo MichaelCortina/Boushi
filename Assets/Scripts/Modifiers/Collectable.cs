@@ -8,14 +8,18 @@ public class Collectable : MonoBehaviour
     [SerializeField] private KeyCode pickUpKey = KeyCode.E;
     [SerializeField] private ItemData data;
     private bool _canPickUp;
+    
 
-    private void Update()
+    private void OnTriggerStay2D(Collider2D col)
     {
-        if (Input.GetKeyDown(pickUpKey) && _canPickUp)
+        if (_canPickUp  && Input.GetKeyDown(pickUpKey))
         {
-            Destroy(gameObject);
-            //inventory.AddItem(new ItemInstance(data));
+            var inventory = col.GetComponent<Inventory>();
+            inventory.AddItem(new ItemInstance(data));
+            
             _canPickUp = false;
+            
+            Destroy(gameObject);
         }
         
     }
