@@ -11,7 +11,9 @@ public class RayTarget : MonoBehaviour, IRayController
     private readonly HashSet<LightRay> _rayHits = new();
     private bool _triggered;
     [SerializeField] private int requiredHits;
+    [SerializeField] private bool Melts = false;
     [SerializeField] private UnityEvent onTrigger;
+    
 
     public void OnRayHit(LightRay ray, Vector2 contactPoint, Vector2 direction)
     {
@@ -29,6 +31,8 @@ public class RayTarget : MonoBehaviour, IRayController
             //mark as triggered
             _triggered = true;
             onTrigger.Invoke();
+            if(Melts)
+                melt();
         }
     }
 
@@ -38,5 +42,10 @@ public class RayTarget : MonoBehaviour, IRayController
         {
             _rayHits.Clear();
         }
+    }
+
+    public void melt()
+    {
+        Destroy(gameObject);
     }
 }
