@@ -5,11 +5,11 @@ namespace InventorySystem
     [Serializable]
     public class ItemInstance
     {
-        public ItemData itemType;
-        
+        public ItemData ItemType { get; init; }
+
         public ItemInstance(ItemData itemData)
         {
-            itemType = itemData;
+            ItemType = itemData;
         }
     }
 }

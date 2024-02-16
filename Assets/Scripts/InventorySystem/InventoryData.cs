@@ -7,6 +7,6 @@ namespace InventorySystem
     internal class InventoryData : ScriptableObject
     {
         // public Bag<ItemInstance> bag;
-        public List<ItemInstance> bag; // so that it displays in Unity
+        public List<ItemData> bag; // so that it displays in Unity
     }
 }

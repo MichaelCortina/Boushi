@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Inventory 1
   m_EditorClassIdentifier: 
   bag:
-  - itemType: {fileID: 11400000, guid: 8358c904c694ae4419d25a27d491a7ca, type: 2}
+  - {fileID: 11400000, guid: 8358c904c694ae4419d25a27d491a7ca, type: 2}

@@ -12,7 +12,7 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (_canPickUp && Input.GetKeyDown(pickUpKey))
+        if (_canPickUp && Input.GetKey(pickUpKey))
         {
             var inventory = col.GetComponent<Inventory>();
             inventory.AddItem(new ItemInstance(data));
@@ -21,7 +21,6 @@ public class Collectable : MonoBehaviour
             
             Destroy(gameObject);
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D col)
