@@ -1,41 +1,42 @@
-
 using InventorySystem;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Utilities;
 
-public class Collectable : MonoBehaviour
+namespace Modifiers
 {
-    [SerializeField] private KeyCode pickUpKey = KeyCode.E;
-    [SerializeField] private ItemData data;
-    private bool _canPickUp;
+    public class Collectable : MonoBehaviour
+    {
+        [SerializeField] private ItemData data;
+        private bool _canPickUp;
     
 
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (_canPickUp && Input.GetKey(pickUpKey))
+        private void OnTriggerStay2D(Collider2D col)
         {
-            var inventory = col.GetComponent<Inventory>();
-            inventory.AddItem(new ItemInstance(data));
+            if (_canPickUp && Input.GetKey(Keybindings.Instance.InteractKey))
+            {
+                var inventory = col.GetComponent<Inventory>();
+                inventory.AddItem(new ItemInstance(data));
             
-            _canPickUp = false;
+                _canPickUp = false;
             
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            _canPickUp = true;
+            if (col.CompareTag("Player"))
+            {
+                _canPickUp = true;
+            }
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.CompareTag("Player"))
+        private void OnTriggerExit2D(Collider2D col)
         {
-            _canPickUp = false;
+            if (col.CompareTag("Player"))
+            {
+                _canPickUp = false;
+            }
         }
     }
 }

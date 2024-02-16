@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
 
-namespace Modifiers.Interactable
+namespace Modifiers.Interact
 {
     public class Lock : MonoBehaviour
     {
