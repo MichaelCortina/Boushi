@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   itemName: key 1
-  icon: {fileID: 21300000, guid: 68e5a78013e33f247822a837e55b0ab4, type: 3}
+  icon: {fileID: 21300000, guid: 54adcdd5d11a04746bd47a03db7c3a2d, type: 3}
   model: {fileID: 0}
-  description: opens a door!!!
+  description: opens a door!!! YIPPIE
