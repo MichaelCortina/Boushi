@@ -11,19 +11,41 @@ public class RayTarget : MonoBehaviour, IRayController
     private readonly HashSet<LightRay> _rayHits = new();
     private bool _triggered;
     [SerializeField] private int requiredHits;
+    [SerializeField] private bool Melts = false;
     [SerializeField] private UnityEvent onTrigger;
+    
 
     public void OnRayHit(LightRay ray, Vector2 contactPoint, Vector2 direction)
     {
-        if (_triggered) return;
+        //If already event activated return
+        if (_triggered)
+            return;
         
+        //Else add new rays to set
         _rayHits.Add(ray);
+        print("Hit" + _rayHits.Count);
+
+        //Once required hits is met activate event
         if (_rayHits.Count >= requiredHits)
+        {
+            //mark as triggered
+            _triggered = true;
             onTrigger.Invoke();
+            if(Melts)
+                melt();
+        }
     }
 
     private void FixedUpdate()
     {
-        _rayHits.Clear();
+        if (!_triggered)
+        {
+            _rayHits.Clear();
+        }
+    }
+
+    public void melt()
+    {
+        Destroy(gameObject);
     }
 }
