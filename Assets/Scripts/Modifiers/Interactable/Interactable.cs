@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Modifiers.Interact
+namespace Modifiers.Interactable
 {
     public interface Interactable
     {

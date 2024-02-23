@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
 
-namespace Modifiers.Interact
+namespace Modifiers.Interactable
 {
-    public class TextInteraction : MonoBehaviour
+    public class TextInteraction : MonoBehaviour, Interactable
     {
         [SerializeField] private ConversationData conversation;
     
