@@ -9,4 +9,10 @@ public class MainMenu : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+	public void QuitGame()
+	{
+		Debug.Log("you just quit the game");
+		Application.Quit();
+	}
 }
