@@ -1937,7 +1937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e0283d0f4a4a39b7ffdbbe48eb0103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactKey: 120
   conversation: {fileID: 11400000, guid: 5016da3b6db914595b823b819d19b6da, type: 2}
   onInteract:
     m_PersistentCalls:
@@ -2100,8 +2099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941ea2eef0ba2af45bec5268c041253c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Awake
-  spawnPoint: 0
+  scene: 1Awaken
+  spawnPoint: 1
 --- !u!212 &949202956
 SpriteRenderer:
   m_ObjectHideFlags: 0
