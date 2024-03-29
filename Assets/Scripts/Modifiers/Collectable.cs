@@ -12,7 +12,7 @@ namespace Modifiers
 
         private void OnTriggerStay2D(Collider2D col)
         {
-            if (_canPickUp && Input.GetKey(Keybindings.Instance.InteractKey))
+            if (_canPickUp && Input.GetKey(Keybindings.InteractKey))
             {
                 var inventory = col.GetComponent<Inventory>();
                 inventory.AddItem(new ItemInstance(data));
