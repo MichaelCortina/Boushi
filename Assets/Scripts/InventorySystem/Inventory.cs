@@ -6,7 +6,7 @@ using Debug = System.Diagnostics.Debug;
 namespace InventorySystem
 {
     public class Inventory : MonoBehaviour
-        {
+    {
             [SerializeField] private InventoryData inventoryData;
             [SerializeField] private bool saveItems;
 

@@ -57,7 +57,7 @@ namespace Modifiers.Interactable
         private void Awake()
         {
             _inputHandler = new InputHandler()
-                .SetClickEvent(Keybindings.Instance.InteractKey, StartInteraction);
+                .SetClickEvent(Keybindings.InteractKey, StartInteraction);
         }
     }
 }

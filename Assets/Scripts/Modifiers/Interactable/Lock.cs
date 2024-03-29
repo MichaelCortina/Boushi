@@ -13,7 +13,7 @@ namespace Modifiers.Interact
         private void OnTriggerStay2D(Collider2D other)
         {
             if (other.CompareTag("Player")
-                && Input.GetKey(Keybindings.Instance.InteractKey)
+                && Input.GetKey(Keybindings.InteractKey)
                 && other.GetComponent<Inventory>().ContainsItem(key))
             {
                 onUnlock.Invoke();

@@ -13,6 +13,7 @@ public class SimpleCameraFollow : MonoBehaviour
         var cameraPosition = transform.position;
         var playerPosition = player.position;
         
+
         // move camera smoothly towards player
         cameraPosition = Vector3.SmoothDamp(cameraPosition, playerPosition, ref cameraVelocity, smoothTime);
         
