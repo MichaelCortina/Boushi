@@ -7,6 +7,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Modifiers;
+using Modifiers.Interact;
+using Modifiers.Interactable;
 
 public class TextController : MonoBehaviour
 {

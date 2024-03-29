@@ -1,61 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Utilities;
 
-public class TextInteraction : MonoBehaviour, Interactable
+namespace Modifiers.Interactable
 {
-    [SerializeField] private KeyCode interactKey = KeyCode.X;
-    [SerializeField] private ConversationData conversation;
-    
-    [SerializeField] private UnityEvent onInteract;
-    [SerializeField] private UnityEvent onInteractEnd;
-
-    private bool _isInteracting;
-    private bool _isPlayerInBounds;
-    
-    private InputHandler _inputHandler;
-
-    public IEnumerable<ConversationLine> Lines => conversation.Conversation;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public class TextInteraction : MonoBehaviour, Interactable
     {
-        if (other.CompareTag("Player"))
+        [SerializeField] private ConversationData conversation;
+    
+        [SerializeField] private UnityEvent onInteract;
+        [SerializeField] private UnityEvent onInteractEnd;
+
+        private bool _isInteracting;
+        private bool _isPlayerInBounds;
+    
+        private InputHandler _inputHandler;
+
+        public IEnumerable<ConversationLine> Lines => conversation.Conversation;
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            _isPlayerInBounds = true;
+            if (other.CompareTag("Player"))
+            {
+                _isPlayerInBounds = true;
+            }
         }
-    }
     
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        private void OnTriggerExit2D(Collider2D other)
         {
-            _isPlayerInBounds = false;
-            if (_isInteracting)
-                EndInteraction();
+            if (other.CompareTag("Player"))
+            {
+                _isPlayerInBounds = false;
+                if (_isInteracting)
+                    EndInteraction();
+            }
         }
-    }
     
-    public void StartInteraction()
-    {
-        if (_isPlayerInBounds && !_isInteracting)
+        public void StartInteraction()
         {
-            _isInteracting = true;
-            onInteract?.Invoke();
+            if (_isPlayerInBounds && !_isInteracting)
+            {
+                _isInteracting = true;
+                onInteract?.Invoke();
+            }
         }
-    }
 
-    public void EndInteraction()
-    {
-        _isInteracting = false;
-        onInteractEnd?.Invoke();
-    }
+        public void EndInteraction()
+        {
+            _isInteracting = false;
+            onInteractEnd?.Invoke();
+        }
 
-    private void Update() => _inputHandler.HandleInput();
+        private void Update() => _inputHandler.HandleInput();
 
-    private void Awake()
-    {
-        _inputHandler = new InputHandler()
-            .SetClickEvent(interactKey, StartInteraction);
+        private void Awake()
+        {
+            _inputHandler = new InputHandler()
+                .SetClickEvent(Keybindings.Instance.InteractKey, StartInteraction);
+        }
     }
 }

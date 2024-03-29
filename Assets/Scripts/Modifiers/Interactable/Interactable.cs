@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public interface Interactable
+namespace Modifiers.Interactable
 {
-    void StartInteraction();
-    void EndInteraction();
-}
-
-public class InteractionEventArgs : EventArgs
-{
-    public IEnumerable<ConversationLine> Conversation { get; }
-    
-    public InteractionEventArgs(IEnumerable<ConversationLine> conversation)
+    public interface Interactable
     {
-        Conversation = conversation;
+        void StartInteraction();
+        void EndInteraction();
+    }
+
+    public class InteractionEventArgs : EventArgs
+    {
+        public IEnumerable<ConversationLine> Conversation { get; }
+    
+        public InteractionEventArgs(IEnumerable<ConversationLine> conversation)
+        {
+            Conversation = conversation;
+        }
     }
 }
