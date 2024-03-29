@@ -5,7 +5,7 @@ namespace Utilities
     {
         [SerializeField] private KeyCode interact = KeyCode.E;
 
-        public KeyCode InteractKey => interact;
+        public static KeyCode InteractKey => _instance.interact;
 
         private void Awake()
         {
@@ -13,6 +13,5 @@ namespace Utilities
         }
 
         private static Keybindings _instance;
-        public static Keybindings Instance => _instance;
     }
 }
