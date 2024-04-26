@@ -13,7 +13,6 @@ public class SimpleCameraFollow : MonoBehaviour
         var cameraPosition = transform.position;
         var playerPosition = player.position;
         
-
         // move camera smoothly towards player
         cameraPosition = Vector3.SmoothDamp(cameraPosition, playerPosition, ref cameraVelocity, smoothTime);
         
@@ -22,5 +21,10 @@ public class SimpleCameraFollow : MonoBehaviour
         
         // set camera position while maintaining z axis
         transform.position = cameraPosition.Set(z: transform.position.z);
+    }
+
+    private void Start()
+    {
+        player = GameState.Player.transform;
     }
 }
