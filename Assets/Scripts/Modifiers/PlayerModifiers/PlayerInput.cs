@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
 {
     private IMovable _movable;
     //private InventorySystem inventory;
+    private Animator animator;
 
     private void Update()
     {
@@ -19,5 +20,12 @@ public class PlayerInput : MonoBehaviour
     {
         _movable = GetComponent<IMovable>();
         //inventory = new InventorySystem();
+        animator = GetComponent<Animator>();
+    }
+
+    void onMove()
+    {
+        animator.SetFloat("x_move",Input.GetAxis("Horizontal"));
+        animator.SetFloat("y_move",Input.GetAxis("Vertical"));
     }
 }
