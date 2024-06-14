@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3264764048581638183}
   - component: {fileID: 3264764048581638190}
-  - component: {fileID: 3264764048581638191}
+  - component: {fileID: 5889582723066289574}
   - component: {fileID: 3264764048581638188}
   - component: {fileID: 3264764048581638189}
   - component: {fileID: 3264764048581638186}
@@ -264,7 +264,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3264764048581638191
+--- !u!114 &5889582723066289574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3264764048705836025}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: moshi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

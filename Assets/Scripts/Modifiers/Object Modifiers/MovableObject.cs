@@ -8,6 +8,9 @@ class MovableObject : MonoBehaviour, IMovable
     [SerializeField] private float moveSpeedModifier = 1f;
     [SerializeField] private bool canMoveXAxis = true;
     [SerializeField] private bool canMoveYAxis = true;
+    
+    [SerializeField] private int xModifier = 1;
+    [SerializeField] private int yModifier = 1;
     public event EventHandler<ObjectMovedEventArgs> OnObjectMoved;
     
     private Rigidbody2D _rb;
@@ -23,8 +26,8 @@ class MovableObject : MonoBehaviour, IMovable
     
     public void MoveObject(Vector2 direction) => 
         _moveDirection = new(
-            direction.x * Convert.ToInt32(canMoveXAxis), 
-            direction.y * Convert.ToInt32(canMoveYAxis));
+            direction.x * Convert.ToInt32(canMoveXAxis)*xModifier, 
+            direction.y * Convert.ToInt32(canMoveYAxis)*yModifier);
 
     private void FixedUpdate()
     {
