@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 3264764048581638190}
   - component: {fileID: 3264764048581638191}
   - component: {fileID: 3264764048581638188}
+  - component: {fileID: 8721347198430182221}
   - component: {fileID: 3264764048581638189}
   - component: {fileID: 3264764048581638186}
   - component: {fileID: 3264764048581638187}
@@ -293,6 +294,24 @@ MonoBehaviour:
   moveSpeedModifier: 1
   canMoveXAxis: 1
   canMoveYAxis: 1
+  xModifier: 1
+  yModifier: 1
+--- !u!114 &8721347198430182221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264764048581638180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ee0103551e4001a2834fe91f188443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullKey: 304
+  _beingPulled: {fileID: 0}
+  _pullDirection: {x: 0, y: 0}
+  _isPullingObject: 0
 --- !u!114 &3264764048581638189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685e3ca7a1f3b3d4689b9200e9b88ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallCheck: 0
+  fallCheck: 1
 --- !u!114 &3264764048581638186
 MonoBehaviour:
   m_ObjectHideFlags: 0

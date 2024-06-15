@@ -10,10 +10,10 @@ using UnityEngine.UI;
 using Modifiers;
 using Modifiers.Interact;
 using Modifiers.Interactable;
+using Utilities;
 
 public class TextController : MonoBehaviour
 {
-    [SerializeField] private KeyCode nextLine = KeyCode.X;
     [SerializeField] private TMP_Text text;
     [SerializeField] private Image portrait;
     [SerializeField] private Image frame;
@@ -54,6 +54,6 @@ public class TextController : MonoBehaviour
     private void Awake()
     {
         _inputHandler = new InputHandler()
-            .SetClickEvent(nextLine, () => _conversation?.MoveNext());
+            .SetClickEvent(Keybindings.InteractKey, () => _conversation?.MoveNext());
     }
 }
