@@ -14,6 +14,11 @@ public class PlayerInput : MonoBehaviour
     {
         var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _movable.MoveObject(input);
+        
+        animator.SetFloat("x_move",Input.GetAxis("Horizontal"));
+        animator.SetFloat("y_move",Input.GetAxis("Vertical"));
+        animator.SetFloat("speed",Mathf.Abs(Input.GetAxis("Vertical")+Input.GetAxis("Horizontal")));
+        //this is not actually the speed i but it accomplishes what I need it to do.
     }
 
     private void Awake()
@@ -22,10 +27,5 @@ public class PlayerInput : MonoBehaviour
         //inventory = new InventorySystem();
         animator = GetComponent<Animator>();
     }
-
-    void onMove()
-    {
-        animator.SetFloat("x_move",Input.GetAxis("Horizontal"));
-        animator.SetFloat("y_move",Input.GetAxis("Vertical"));
-    }
+    
 }
