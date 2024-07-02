@@ -20,15 +20,15 @@ public class boushi_reliance : MonoBehaviour
         Vector2 currParentPos = rely_on.position;
         Vector2 movementDirection = currParentPos - prevParentPos;
         
-        if (movementDirection.x < 1)
-        {
-            baby_guy.constraints = RigidbodyConstraints2D.FreezePositionX;
-        }
-        if (movementDirection.y < 1)
-        {
-            baby_guy.constraints = RigidbodyConstraints2D.FreezePositionY;
-        }
-        baby_guy.constraints = RigidbodyConstraints2D.None;
-        baby_guy.constraints = RigidbodyConstraints2D.FreezeRotation;
+		if (movementDirection.x < 1){
+		Debug.Log("i am silly x");
+			baby_guy.constraints = RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY;
+		}
+		if (movementDirection.y < 1){
+		Debug.Log("i am silly y");
+			baby_guy.constraints = ~RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+		}
+        /*baby_guy.constraints = RigidbodyConstraints2D.None;*/
+        /*baby_guy.constraints = RigidbodyConstraints2D.FreezeRotation;*/
     }
 }
