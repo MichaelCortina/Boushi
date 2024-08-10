@@ -15,19 +15,22 @@ public class boushi_reliance : MonoBehaviour
         baby_guy = GetComponent<Rigidbody2D>();
         prevParentPos = rely_on.position;
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        Vector2 currParentPos = rely_on.position;
-        Vector2 movementDirection = currParentPos - prevParentPos;
+        Vector2 movementDirection = rely_on.position - prevParentPos;
         
-		if (movementDirection.x < 1){
+		if (movementDirection.x == 0){
+		Debug.Log(movementDirection.x);
 		Debug.Log("i am silly x");
 			baby_guy.constraints = RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY;
 		}
-		if (movementDirection.y < 1){
+		if (movementDirection.y == 0){
+		Debug.Log(movementDirection.y);
 		Debug.Log("i am silly y");
 			baby_guy.constraints = ~RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 		}
+		baby_guy.constraints = ~RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY;
+		Debug.Log("end of fixed update");
         /*baby_guy.constraints = RigidbodyConstraints2D.None;*/
         /*baby_guy.constraints = RigidbodyConstraints2D.FreezeRotation;*/
     }
