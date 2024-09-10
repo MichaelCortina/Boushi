@@ -12,7 +12,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         _movable.MoveObject(input);
         
         animator.SetFloat("x_move",Input.GetAxis("Horizontal"));
