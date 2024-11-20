@@ -1,9 +1,10 @@
 ﻿using System.Timers;
 using UnityEngine;
+using Utilities;
 
 public class ResetHat : MonoBehaviour
 {
-    [SerializeField] private KeyCode resetKey;
+    [SerializeField] private KeyCode resetKey = Input.GetKey(Keybindings.ResetKey);
     [SerializeField] private float resetTime;
     [SerializeField] private SpriteRenderer afterImage;
 
