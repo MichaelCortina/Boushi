@@ -16,7 +16,7 @@ public class ResetHat : MonoBehaviour
 
     private void Update() => _inputHandler.HandleInput();
     
-    private void FullReset() => _sceneManager.ResetAll();
+    //private void FullReset() => _sceneManager.ResetAll();
     
     private void SoftReset()
     {
@@ -38,7 +38,7 @@ public class ResetHat : MonoBehaviour
     {
         _sceneManager = FindObjectOfType<SceneManager>();
         _inputHandler = new InputHandler()
-            .SetClickEvent(resetKey, SoftReset)
-            .SetHoldEvent(resetKey, resetTime, FullReset);
+            .SetClickEvent(resetKey, SoftReset);
+            //.SetHoldEvent(resetKey, resetTime, FullReset);
     }
 }
